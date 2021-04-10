@@ -1,0 +1,94 @@
+.gallery {
+    display: flex;
+    flex-direction: row;
+    column-gap: 200px;
+    margin-top: 200px;
+}
+
+.portrait {
+    background-color: white;
+    border-radius: 4%;
+    position: relative;
+    width: 300px;
+    height: 400px;
+    display:flex;
+    justify-content: center;
+}
+
+.portrait__picture {
+    position: absolute;
+    top: -80px;
+    border-radius: 50%;
+}
+
+.name {
+    color: rgb(131, 130, 130);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    top: 25%;
+}
+
+.dash {
+    border: 1px solid #AFAFAF;
+    width: 175px;
+    height: 0px;
+    position: absolute;
+    top: 40%;
+    border-radius: 10%;
+}
+
+.header__text {
+    color: rgb(131, 130, 130);
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 1em;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.footer__text {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 5em;
+    margin-right: 5em;
+    font-weight: bold;
+}
+
+body {
+    background-color: #E7EFFD;
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+footer {
+    background-color: #938ED5;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 1350px) {
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        row-gap: 10em;
+        margin-bottom: 200px;
+    }
+
+}
