@@ -13,7 +13,7 @@
 
 
 <body>
-    <img class= "img1" src="/asset-main.png">
+    <img class= "img1" src="../../../TW_UnWe_MVC/public/assets/home/asset-main.png">
 <header>
         <div class="header">
         <div class="text1">
@@ -42,19 +42,19 @@
 
 <section class="section1 text-center">
 <div class="info">
-<img class="img2" src="/pie-chart.svg">
+<img class="img2" src="../../../TW_UnWe_MVC/public/assets/home/pie-chart.svg">
 <br>
     Grafice
     <p class="smalltext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
 </div>
 <div class="info">
-    <img class="img2" src="/analytics.svg">
+    <img class="img2" src="../../../TW_UnWe_MVC/public/assets/home/analytics.svg">
     <br>
     Filtrare
     <p class="smalltext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
 </div>
 <div class="info">
-    <img class="img2" src="/document.svg">
+    <img class="img2" src="../../../TW_UnWe_MVC/public/assets/home/document.svg">
     <br>
     Export
     <p class="smalltext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
