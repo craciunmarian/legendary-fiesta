@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>UnWe - Unemployment Web Visualizer</title>
     <link rel="stylesheet" href="../../../TW_UnWe_MVC/public/css/common/common.css">
     <link rel="stylesheet" href="../../../TW_UnWe_MVC/public/css/home/landing_page.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
