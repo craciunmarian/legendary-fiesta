@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../TW_UnWe_MVC/public/css/about/report.css">
+    <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/about/report.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <title>UnWe - Unemployment Web Visualizer</title>
@@ -49,6 +49,11 @@
 
         <section role="doc-introduction">
             <h2> Introduction </h2>
+
+            <section>
+                <h3> Approach </h3>
+                We started our project by analizing the requirements and making a list of the items that had to be implemented in order to simulate a real website. We then had an Adobe XD file created by one of our team members in order to have clear guidelines about the visual aspect of our project. We then proceeded to split our work as evenly as possible, each of us being responsible with writing the HTML and CSS for one page.
+            </section>
 
             <section>
                 <h3> Purpose </h3>
