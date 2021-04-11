@@ -9,9 +9,9 @@
 </head>
 <body>
     <header>
-        <a class="header__text" href="../../../../TW_UnWe_MVC/public/home">Acasă</a>
-        <a class="header__text" href="../../../../TW_UnWe_MVC/public/visualizer">Statistici</a>
-        <a class="header__text" href="../../../../TW_UnWe_MVC/public/about">Despre noi</a>
+        <a class="header__text" href="../public/home">Acasă</a>
+        <a class="header__text" href="../public/visualizer">Statistici</a>
+        <a class="header__text" href="../public/about">Despre noi</a>
     </header>
     <div class="gallery">
         <div class="portrait">
