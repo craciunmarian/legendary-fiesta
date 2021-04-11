@@ -1,0 +1,128 @@
+html 
+{
+    font-size: 156.25%;
+    min-height: 100%;
+    
+}
+
+body
+{
+    background-color: #E7EFFD;
+    
+}
+
+.header
+{
+    width: 25%;
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    
+    position: absolute;
+    top: 1.5vw;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    visibility: visible;
+}
+.text1
+{
+
+    font-family: 'Open Sans', sans-serif;
+    color: #74787F;
+    font-weight: bold;
+    font-size: 1vw;
+
+}
+
+svg {
+    width: 50vw;
+    position: absolute;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    left: 0%;
+    right: 0%;
+    /* top: 0%; */
+}
+
+path:hover {
+    cursor:pointer;
+    fill: #505050;
+}
+
+h1 {
+    position: relative;
+    margin-top: 10%;
+    text-align: center;
+}
+
+.subtitle
+{
+    font-family: 'Open Sans', sans-serif;
+    color: #3F3D56;
+    font-weight: 600;
+    font-size: 3.2vw;
+}
+
+form {
+    position:relative;
+    margin-top: 70vh;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 0.72vw;
+    font-weight: 600;
+
+    background-color: #928DD5;
+    width: fit-content;
+    padding: 1em;
+    border-radius: 0.4em;
+}
+
+select {
+    font-family: 'Open Sans', sans-serif;
+    color: #3F3D56;
+    font-size: 0.72vw;
+    font-weight: 600;
+    border-radius: 0.4em;
+}
+
+.visualizer-form__judete select {
+    width: 30%;
+}
+
+.visualizer-form__period select {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+input[type=checkbox] {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type=checkbox] + label {
+    color: #3F3D56;
+    background-color: white;
+    padding: 0.2em;
+    margin: 0.5em;
+    border: 3px solid #928DD5;
+    width: 50%;
+    border-radius: 0.7em;
+}
+
+input:checked + label {
+    border: 3px solid red;
+}
+
+.visualizer-form__judete {
+    display: flex;
+    justify-content: space-around;
+}
+
+.visualizer-form__2-checkboxes {
+    display: flex;
+    justify-content: space-around;
+}
