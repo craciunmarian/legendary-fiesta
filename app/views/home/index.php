@@ -15,7 +15,7 @@
 
 
 <body id="body">
-    <img class="image__asset" src="/public/assets/home/asset-main.png" alt="Error loading asset">
+    <img class="image__asset" src="/public/assets/home/asset-main.png" alt="decorative asset containing a girl on her laptop">
     <header>
         <nav class="nav__container" id="nav__container">
             <button class="hamburger" id="hamburger">
@@ -43,19 +43,19 @@
 
     <section class="section text-center">
         <div class="icons__text">
-            <img class="icons" src="/public/assets/home/pie-chart.svg" alt="Error loading icon">
+            <img class="icons" src="/public/assets/home/pie-chart.svg" alt="decorative asset containing a pie chart">
             <br>
             Grafice
             <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
         </div>
         <div class="icons__text">
-            <img class="icons" src="/public/assets/home/analytics.svg" alt="Error loading icon">
+            <img class="icons" src="/public/assets/home/analytics.svg" alt="decorative asset representing a statistic visualization">
             <br>
             Filtrare
             <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
         </div>
         <div class="icons__text">
-            <img class="icons" src="/public/assets/home/document.svg" alt="Error loading icon">
+            <img class="icons" src="/public/assets/home/document.svg" alt="decorative asset in the shape of a document">
             <br>
             Export
             <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
