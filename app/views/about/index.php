@@ -12,18 +12,16 @@
 </head>
 <body>
     <header>
-        <div class="header">
-            <a class="header__text" href="../public/home">Acasă</a>
-            <a class="header__text" href="../public/visualizer">Statistici</a>
-            <a class="header__text" href="../public/about">Despre noi</a>
-        </div>        
+        <a class="header__text" href="../public/home">Acasă</a>
+        <a class="header__text" href="../public/visualizer">Statistici</a>
+        <a class="header__text" href="../public/about">Despre noi</a>       
     </header>
     <div class="gallery">
         <div class="portrait">
             <img class="portrait__picture" src="../../../../TW_UnWe_MVC/public/assets/about/adana_pfp.png" alt="pic 1">
             <p class="name">Adana Popescu</p>
             <div class="dash"></div>
-            <p class="email">idkyet@example.com</p>
+            <p class="email">adana.popescu22@gmail.com</p>
         </div>
         <div class="portrait">
             <img class="portrait__picture" src="../../../../TW_UnWe_MVC/public/assets/about/adrian_pfp.jpg" alt="pic 2">
