@@ -1,0 +1,177 @@
+.gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 200px;
+
+    margin-top: 12em;
+
+    flex: 1 0 auto;
+}
+
+.portrait {
+    background-color: white;
+    border-radius: 4%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 17vw;
+    height: 25vw;
+}
+
+.portrait__picture {
+    position: absolute;
+    top: -60px;
+    border-radius: 50%;
+
+    width: 9vw;
+    height: 9vw;
+
+}
+
+.portrait:hover{
+    background-color: #938ED5;
+}
+
+.portrait:hover .name{
+    color: white;
+}
+
+.portrait:hover .email {
+    color: white;
+}
+
+.portrait:hover .portrait__picture {
+    border: 3px solid #938ED5;
+}
+
+.name {
+    color: rgb(131, 130, 130);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.3vw;
+
+    position: absolute;
+    top: 25%;
+}
+
+.email {
+    color: rgb(131, 130, 130);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1vw;
+    position: absolute;
+    top: 50%;
+}
+
+.dash {
+    border: 1px solid #AFAFAF;
+    width: 175px;
+    height: 0px;
+    position: absolute;
+    top: 40%;
+    border-radius: 10%;
+}
+
+
+.header__text {
+    color: rgb(131, 130, 130);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.1vw;
+    text-decoration: none;
+
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 1em;
+
+    white-space: nowrap;
+}
+
+.header__text:hover {
+    color: #938ED5;
+}
+
+.footer__text {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+    margin-left: 1em;
+    margin-right: 1em;
+    white-space: nowrap;
+}
+
+.footer__text:hover {
+    color: rgb(216, 216, 216);
+}
+
+html, body {
+    height: 100vh;
+}
+
+body {
+    background-color: #E7EFFD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    
+    position: absolute;
+    top: 0.5vw;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    visibility: visible;
+}
+
+footer {
+    background-color: #938ED5;
+
+    display: flex;
+    justify-content: left;
+
+    height: 50px;
+    width: 100%;
+}
+
+@media screen and (max-width: 1250px) {
+
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        row-gap: 10em;
+        margin-bottom: 200px;
+    }
+
+    .portrait {
+        width: 300px;
+        height: 400px;
+    }
+
+    .portrait__picture {
+        width: 150px;
+        height: 150px;
+    }
+
+    .name {
+        font-size: 20px;
+    }
+
+    .email {
+        font-size: 14px;
+    }
+
+    .header__text {
+        font-size: 1em;
+    }
+}

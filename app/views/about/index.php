@@ -4,35 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../public/css/about/stylesheet.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/about/styles.css">
+    <title>UnWe - Unemployment Web About</title>
 </head>
-<header class="header">
-    <a class="header__text" href="pagetest1.html">Acasă</a>
-    <a class="header__text" href="pagetest2.html">Statistici</a>
-    <a class="header__text" href="index.html">Despre noi</a>
-</header>
 <body>
+    <header>
+        <a class="header__text" href="../../../../TW_UnWe_MVC/public/home">Acasă</a>
+        <a class="header__text" href="../../../../TW_UnWe_MVC/public/visualizer">Statistici</a>
+        <a class="header__text" href="../../../../TW_UnWe_MVC/public/about">Despre noi</a>
+    </header>
     <div class="gallery">
         <div class="portrait">
-            <img class="portrait__picture" src="../../../public/assets/about/generic_pic.jpg" alt="pic 1" width="150" height="150">
+            <img class="portrait__picture" src="../../../../TW_UnWe_MVC/public/assets/about/adana_pfp.jpg" alt="pic 1">
             <p class="name">Adana Popescu</p>
             <div class="dash"></div>
+            <p class="email">idkyet@example.com</p>
         </div>
         <div class="portrait">
-            <img class="portrait__picture" src="../../../public/assets/about/generic_pic.jpg" alt="pic 2" width="150" height="150">
+            <img class="portrait__picture" src="../../../../TW_UnWe_MVC/public/assets/about/adrian_pfp.jpg" alt="pic 2">
             <p class="name">Vătui Adrian</p>
             <div class="dash"></div>
+            <p class="email">adrianvatui9989@yahoo.com</p>
         </div>
         <div class="portrait">
-            <img class="portrait__picture" src="../../../public/assets/about/generic_pic.jpg" alt="pic 3" width="150" height="150">
+            <img class="portrait__picture" src="../../../../TW_UnWe_MVC/public/assets/about/razvan_pfp.jpg" alt="pic 3">
             <p class="name">Crăciun Răzvan</p>
             <div class="dash"></div>
+            <p class="email">razvanmariancr@gmail.com</p>
         </div>
     </div>
+    <footer>
+        <p class="footer__text">filler text</p>
+        <p class="footer__text">filler text</p>
+    </footer>
 </body>
-<footer>
-    <p class="footer__text">filler text</p>
-    <p class="footer__text">filler text</p>
-</footer>
 </html>
