@@ -26,6 +26,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    margin-top: -8px;
 }
 
 .header__text {
@@ -176,6 +178,10 @@ input:checked + label {
 @media screen and (max-width: 1000px) {
     .header__text {
         color: white;
+    }
+
+    .nav__container.open__sesame {
+        margin-top: -8px;
     }
 }
 

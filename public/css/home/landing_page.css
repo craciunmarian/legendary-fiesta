@@ -5,7 +5,7 @@ body
     background-color: #E7EFFD;
     background: linear-gradient(#8F8AD4 10%, #E7EFFD 90%);
     background-repeat: no-repeat;
-    
+    margin: 0;
 }
 
 header {
