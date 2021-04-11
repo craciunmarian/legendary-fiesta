@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../../TW_UnWe_MVC/public/css/common/common.css">
-    <link rel="stylesheet" href="../../../TW_UnWe_MVC/public/css/home/aa.css">
+    <link rel="stylesheet" href="../../../TW_UnWe_MVC/public/css/home/landing_page.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
@@ -17,17 +17,10 @@
     <img class= "image__asset" src="../../../TW_UnWe_MVC/public/assets/home/asset-main.png">
 <header>
         <div class="header">
-        <a class="header__text" href="../public/home">
-        Acasă
-</a>
-        <a class="header__text" href="../public/visualizer">
-        Statistici
-</a>
-        <a class="header__text" href="../public/about">
-        Despre noi
-</a>   
+        <a class="header__text" href="../public/home">Acasă</a>
+        <a class="header__text" href="../public/visualizer">Statistici</a>
+        <a class="header__text" href="../public/about">Despre noi</a>   
         </div>
-    
 </header>
 
 <h1 class="title text-center">
