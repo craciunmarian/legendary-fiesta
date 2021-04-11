@@ -14,7 +14,7 @@
 
 
 <body>
-    <img class= "image__asset" src="../../../TW_UnWe_MVC/public/assets/home/asset-main.png">
+    <img class= "image__asset" src="../../../TW_UnWe_MVC/public/assets/home/asset-main.png" alt="Error loading asset">
 <header>
         <div class="header">
         <a class="header__text" href="../public/home">Acasă</a>
@@ -36,19 +36,19 @@
 
 <section class="section text-center">
 <div class="icons__text">
-<img class="icons" src="../../../TW_UnWe_MVC/public/assets/home/pie-chart.svg">
+<img class="icons" src="../../../TW_UnWe_MVC/public/assets/home/pie-chart.svg" alt="Error loading icon">
 <br>
     Grafice
     <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
 </div>
 <div class="icons__text">
-    <img class="icons" src="../../../TW_UnWe_MVC/public/assets/home/analytics.svg">
+    <img class="icons" src="../../../TW_UnWe_MVC/public/assets/home/analytics.svg" alt="Error loading icon">
     <br>
     Filtrare
     <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
 </div>
 <div class="icons__text">
-    <img class="icons" src="../../../TW_UnWe_MVC/public/assets/home/document.svg">
+    <img class="icons" src="../../../TW_UnWe_MVC/public/assets/home/document.svg" alt="Error loading icon">
     <br>
     Export
     <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
