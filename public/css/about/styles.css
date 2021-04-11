@@ -19,6 +19,30 @@
     height: 25vw;
 }
 
+.nav__list {
+    margin-top: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.hamburger {
+    background-color: transparent;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    visibility: hidden;
+    position: fixed;
+    right: 2%;
+    top: 2%;
+}
+
+.hamburger:focus {
+    outline: none;
+}
+
 .portrait__picture {
     position: absolute;
     top: -60px;
@@ -72,7 +96,6 @@
     border-radius: 10%;
 }
 
-
 .header__text {
     color: rgb(131, 130, 130);
     font-family: 'Open Sans', sans-serif;
@@ -121,7 +144,6 @@ header {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1.5vw;
     left: 0;
     right: 0;
     visibility: visible;
@@ -139,6 +161,10 @@ footer {
 
 @media screen and (max-width: 1000px) {
     
+    .hamburger {
+        visibility: visible;
+    }
+
     header {
         visibility: hidden;
     }

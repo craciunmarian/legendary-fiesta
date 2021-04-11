@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/common/common.css">
     <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/about/styles.css">
+    <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/about/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <title>UnWe - Unemployment Web About</title>
 </head>
 <body>
     <header>
-        <a class="header__text" href="../public/home">Acasă</a>
-        <a class="header__text" href="../public/visualizer">Statistici</a>
-        <a class="header__text" href="../public/about">Despre noi</a>       
+        <nav>
+            <button class="hamburger" id="hamburger">
+                <img src="../../../../TW_UnWe_MVC/public/assets/about/hamburger.svg" class="hamburger__icon">
+            </button>
+            <ul class="nav__list">
+                <li><a class="header__text" href="../public/home">Acasă</a></li>
+                <li><a class="header__text" href="../public/visualizer">Statistici</a></li>
+                <li><a class="header__text" href="../public/about">Despre noi</a></li>
+            </ul>
+        </nav>   
     </header>
     <div class="gallery">
         <div class="portrait">
