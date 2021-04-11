@@ -45,7 +45,7 @@
         </div>
     </div>
     <footer>
-        <p class="footer__text">filler text</p>
+        <a href="../../../../TW_UnWe_MVC/app/views/about/report.php" class="footer__text">Documentatie</a>
         <p class="footer__text">filler text</p>
     </footer>
     <script src="../../../../TW_UnWe_MVC/public/scripts/about/hamburger.js"></script>
