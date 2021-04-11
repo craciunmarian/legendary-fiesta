@@ -1,16 +1,5 @@
-html {
-    font-size: 100%;
-}
-
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-}
-
 .text1
 {
-
     font-family: 'Open Sans', sans-serif;
     color: #74787F;
     font-weight: bold;
@@ -45,7 +34,7 @@ main {
 
 .subtitle
 {
-    margin-top: 7%;
+    margin-top: 3%;
     text-align: center;
 }
 
@@ -57,7 +46,6 @@ svg {
     margin-top: 0vw;
     left: 0%;
     right: 0%;
-    /* top: 0%; */
 }
 
 path:hover {
@@ -191,7 +179,7 @@ input:checked + label {
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 830px) {
 
     svg {
         width: 60vw;
