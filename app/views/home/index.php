@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../../TW_UnWe_MVC/public/css/common/common.css">
     <link rel="stylesheet" href="../../../TW_UnWe_MVC/public/css/home/aa.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -13,23 +14,23 @@
 
 
 <body>
-    <img class= "img1" src="../../../TW_UnWe_MVC/public/assets/home/asset-main.png">
+    <img class= "image__asset" src="../../../TW_UnWe_MVC/public/assets/home/asset-main.png">
 <header>
         <div class="header">
-        <div class="text1">
+        <a class="header__text" href="../public/home">
         Acasă
-        </div>
-        <div class="text1">
+</a>
+        <a class="header__text" href="../public/visualizer">
         Statistici
-        </div>
-        <div class="text1">
+</a>
+        <a class="header__text" href="../public/about">
         Despre noi
-        </div>   
+</a>   
         </div>
     
 </header>
 
-<h1 class="title1 text-center">
+<h1 class="title text-center">
     Șomajul în România
 </h1>
 
@@ -40,24 +41,24 @@
     funcționalități
 </h2>
 
-<section class="section1 text-center">
-<div class="info">
-<img class="img2" src="../../../TW_UnWe_MVC/public/assets/home/pie-chart.svg">
+<section class="section text-center">
+<div class="icons__text">
+<img class="icons" src="../../../TW_UnWe_MVC/public/assets/home/pie-chart.svg">
 <br>
     Grafice
-    <p class="smalltext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
+    <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
 </div>
-<div class="info">
-    <img class="img2" src="../../../TW_UnWe_MVC/public/assets/home/analytics.svg">
+<div class="icons__text">
+    <img class="icons" src="../../../TW_UnWe_MVC/public/assets/home/analytics.svg">
     <br>
     Filtrare
-    <p class="smalltext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
+    <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
 </div>
-<div class="info">
-    <img class="img2" src="../../../TW_UnWe_MVC/public/assets/home/document.svg">
+<div class="icons__text">
+    <img class="icons" src="../../../TW_UnWe_MVC/public/assets/home/document.svg">
     <br>
     Export
-    <p class="smalltext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
+    <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
 </div>
 </section>
 
