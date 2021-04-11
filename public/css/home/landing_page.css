@@ -10,7 +10,7 @@ body
 
 header {
     width: 100%;
-    /* display: flex; */
+    display: flex;
     margin: auto;
     justify-content: center;
     
