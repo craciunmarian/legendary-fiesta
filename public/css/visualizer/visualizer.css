@@ -93,9 +93,19 @@ select {
     width: 30%;
 }
 
+.visualizer-form__judete {
+    display: flex;
+    justify-content: space-around;
+}
+
 .visualizer-form__period select {
     margin-left: 1em;
-    margin-right: 1em;
+    margin-right: 1em; 
+}
+
+.visualizer-form__period {
+    display: flex;
+    justify-content: center;
 }
 
 input[type=checkbox] {
@@ -117,12 +127,21 @@ input:checked + label {
     border: 3px solid red;
 }
 
-.visualizer-form__judete {
+.visualizer-form__2-checkboxes {
     display: flex;
     justify-content: space-around;
 }
 
-.visualizer-form__2-checkboxes {
+.visualizer-form__education label {
+    margin: 0.5em;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.visualizer-form__age label {
+    margin: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -177,6 +177,23 @@
                 </select>
             </label>
         </section>
+
+        <section class="visualizer-form__manner">
+            <label>
+                <span> Pie chart </span>
+                <input name="manner" type="radio">
+            </label>
+
+            <label>
+                <span> Bar chart </span>
+                <input name="manner" type="radio">
+            </label>
+
+            <label>
+                <span> Hartă </span>
+                <input name="manner" type="radio">
+            </label>
+        </section>
     </form>
 
     <!-- doesn't work on IE, need to do some js for this -->

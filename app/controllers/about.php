@@ -6,4 +6,9 @@ class About extends Controller
     {
         $this->view('about/index');
     }
+
+    public function report()
+    {
+        $this->view('about/report');
+    }
 }
