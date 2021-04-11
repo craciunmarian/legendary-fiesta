@@ -6,17 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/common/common.css">
     <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/about/styles.css">
-    <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/about/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <script src="../../../../TW_UnWe_MVC/public/scripts/about/hamburger.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <title>UnWe - Unemployment Web About</title>
 </head>
-<body>
+<body id="body">
     <header>
-        <nav>
+        <nav class="nav__container" id="nav__container">
             <button class="hamburger" id="hamburger">
-                <img src="../../../../TW_UnWe_MVC/public/assets/common/hamburger.svg" class="hamburger__icon">
+                <img src="../../../../TW_UnWe_MVC/public/assets/common/hamburger.svg" class="hamburger__icon" id="hamburger__icon">
+                <img src="../../../../TW_UnWe_MVC/public/assets/common/hamburger-white.svg" class="hamburger__icon__white" id="hamburger__icon__white">
             </button>
             <ul class="nav__list" id="nav__list">
                 <li><a class="header__text" href="../public/home">Acasă</a></li>
@@ -49,5 +48,6 @@
         <p class="footer__text">filler text</p>
         <p class="footer__text">filler text</p>
     </footer>
+    <script src="../../../../TW_UnWe_MVC/public/scripts/about/hamburger.js"></script>
 </body>
 </html>

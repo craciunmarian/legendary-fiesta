@@ -1,10 +1,59 @@
+html {
+    font-size: 100%;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: #E7EFFD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    visibility: visible;
+}
+
+.header__text {
+    color: rgb(131, 130, 130);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+    text-decoration: none;
+
+    margin-left: 2em;
+    margin-right: 2em;
+
+    white-space: nowrap;
+}
+
+.header__text:hover {
+    color: #938ED5;
+}
+
 .gallery {
     display: flex;
     flex-direction: row;
     justify-content: center;
     column-gap: 200px;
 
-    margin-top: 12em;
+    margin-top: 10em;
 
     flex: 1 0 auto;
 }
@@ -19,6 +68,23 @@
     height: 25vw;
 }
 
+.portrait__picture {
+    position: absolute;
+    top: -60px;
+    border-radius: 50%;
+
+    width: 9vw;
+    height: 9vw;
+
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
 .nav__list {
     margin-top: 1.5vw;
     display: flex;
@@ -28,18 +94,12 @@
     padding: 0;
 }
 
-.hamburger:focus {
-    outline: none;
+.hamburger__icon__white {
+    display: none;
 }
 
-.portrait__picture {
-    position: absolute;
-    top: -60px;
-    border-radius: 50%;
-
-    width: 9vw;
-    height: 9vw;
-
+.hamburger:focus {
+    outline: none;
 }
 
 .portrait:hover{
@@ -68,6 +128,15 @@
     top: 25%;
 }
 
+.dash {
+    border: 1px solid #AFAFAF;
+    width: 10vw;
+    height: 0px;
+    position: absolute;
+    top: 40%;
+    border-radius: 10%;
+}
+
 .email {
     color: rgb(131, 130, 130);
     font-family: Arial, Helvetica, sans-serif;
@@ -76,66 +145,8 @@
     top: 50%;
 }
 
-.dash {
-    border: 1px solid #AFAFAF;
-    width: 175px;
-    height: 0px;
-    position: absolute;
-    top: 40%;
-    border-radius: 10%;
-}
-
-.header__text {
-    color: rgb(131, 130, 130);
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    font-size: 1vw;
-    text-decoration: none;
-
-    margin-left: 2em;
-    margin-right: 2em;
-
-    white-space: nowrap;
-}
-
-.header__text:hover {
-    color: #938ED5;
-}
-
 .footer__text:hover {
     color: rgb(216, 216, 216);
-}
-
-html {
-    font-size: 100%;
-}
-
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-}
-
-body {
-    background-color: #E7EFFD;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-}
-
-header {
-    width: 100%;
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    visibility: visible;
 }
 
 footer {
@@ -152,14 +163,61 @@ footer {
     
     .nav__list {
         display: none;
+        flex-direction: column;
+        row-gap: 5em;
+        width: 100%;
     }
 
-    .nav__list.show {
+    /* .nav__list.show {
         display: flex;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: #938ED5;
+        margin: 0;
+        left: 0;
+        z-index: 90;
+    } */
+
+    .nav__list.show {
+        z-index: 95;
+        display: flex;
+    }
+
+    .nav__container.idk {
+        display: flex;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: #938ED5;
+        margin: 0;
+        left: 0;
+        z-index: 90;
+    }
+
+    .hamburger__icon.swap {
+        display: none;
+    }
+
+    .hamburger__icon__white.reveal {
+        display: block;
+        position: fixed;
+        top: 3%;
+        right: 8%;
+        z-index: 99;
+    }
+
+    body.hide {
+        overflow: hidden;
     }
 
     .hamburger {
         display: block;
+    }
+
+    .header__text {
+        font-size: 50px;
+        color: white;
     }
 
     .gallery {
@@ -169,7 +227,6 @@ footer {
         align-items: center;
 
         margin: auto;
-
         margin-top: 8em;
 
         row-gap: 10em;
@@ -179,6 +236,10 @@ footer {
     .portrait {
         width: 19em;
         height: 25em;
+    }
+
+    .dash {
+        width: 12em;
     }
 
     .portrait__picture {
@@ -194,7 +255,4 @@ footer {
         font-size: 14px;
     }
 
-    .header__text {
-        font-size: 1em;
-    }
 }
