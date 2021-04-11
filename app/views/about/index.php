@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/common/common.css">
-    <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/about/styles.css">
+    <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/about/about_page.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <title>UnWe - Unemployment Web About</title>
+    <title>UnWe - Unemployment Web Visualizer</title>
 </head>
 <body id="body">
     <header>
         <nav class="nav__container" id="nav__container">
             <button class="hamburger" id="hamburger">
-                <img src="../../../../TW_UnWe_MVC/public/assets/common/hamburger.svg" class="hamburger__icon" id="hamburger__icon">
-                <img src="../../../../TW_UnWe_MVC/public/assets/common/hamburger-white.svg" class="hamburger__icon__white" id="hamburger__icon__white">
+                <img src="../../../../TW_UnWe_MVC/public/assets/common/hamburger.svg" class="hamburger__icon" id="hamburger__icon" alt="burger">
+                <img src="../../../../TW_UnWe_MVC/public/assets/common/close.svg" class="close__icon" id="close__icon" alt="close">
             </button>
             <ul class="nav__list" id="nav__list">
                 <li><a class="header__text" href="../public/home">Acasă</a></li>

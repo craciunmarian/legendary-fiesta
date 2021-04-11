@@ -1,7 +1,7 @@
 const hamburger = document.getElementById('hamburger');
 const navList = document.getElementById('nav__list');
 const body = document.getElementById('body');
-const whiteIcon = document.getElementById('hamburger__icon__white');
+const closeIcon = document.getElementById('close__icon');
 const icon = document.getElementById('hamburger__icon');
 
 const container = document.getElementById('nav__container');
@@ -9,15 +9,15 @@ const container = document.getElementById('nav__container');
 hamburger.addEventListener('click', () => {
     navList.classList.toggle('show');
     body.classList.toggle('hide');
-    whiteIcon.classList.toggle('reveal');
+    closeIcon.classList.toggle('reveal');
     icon.classList.toggle('swap');
-    container.classList.toggle('idk');
+    container.classList.toggle('open__sesame');
 });
 
 navList.addEventListener('click', () => {
     navList.classList.toggle('show');
     body.classList.toggle('hide');
-    whiteIcon.classList.toggle('reveal');
+    closeIcon.classList.toggle('reveal');
     icon.classList.toggle('swap');
-    container.classList.toggle('idk');
+    container.classList.toggle('open__sesame');
 });
