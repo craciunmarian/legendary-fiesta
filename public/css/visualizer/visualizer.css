@@ -1,9 +1,11 @@
-.header__text {
-    color:rgb(131, 130, 130)
+html {
+    font-size: 100%;
 }
 
-.header__text:hover {
-    color: #938ED5;
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 
 .text1
@@ -35,6 +37,10 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.header__text {
+    color: #74787F;
 }
 
 .subtitle

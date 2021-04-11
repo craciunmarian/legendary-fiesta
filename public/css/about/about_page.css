@@ -30,21 +30,8 @@ header {
     visibility: visible;
 }
 
-.header__text {
-    color: rgb(131, 130, 130);
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    font-size: 1vw;
-    text-decoration: none;
-
-    margin-left: 2em;
-    margin-right: 2em;
-
-    white-space: nowrap;
-}
-
-.header__text:hover {
-    color: #938ED5;
+.header__text{
+    color: #74787F;
 }
 
 .gallery {
@@ -136,11 +123,6 @@ footer {
 }
 
 @media screen and (max-width: 1000px) { 
-
-    .header__text {
-        font-size: 50px;
-        color: white;
-    }
 
     .gallery {
         display: flex;

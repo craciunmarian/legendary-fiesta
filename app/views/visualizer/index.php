@@ -12,7 +12,7 @@
     <title>UnWe - Unemployment Web Visualizer</title>
 </head>
 
-<body>
+<body id="body">
     <header>
         <nav class="nav__container" id="nav__container">
             <button class="hamburger" id="hamburger">

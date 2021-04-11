@@ -31,6 +31,23 @@ text
     visibility: visible;
 }
 
+.header__text {
+    color: rgb(131, 130, 130);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+    text-decoration: none;
+
+    margin-left: 2em;
+    margin-right: 2em;
+
+    white-space: nowrap;
+}
+
+.header__text:hover {
+    color: #938ED5;
+}
+
 .hamburger {
     background-color: transparent;
     border: 0;
@@ -103,6 +120,12 @@ text
 
 
 @media screen and (max-width: 1000px) {
+
+    .header__text {
+        font-size: 50px;
+        color: white;
+    }
+
     .nav__list {
         display: none;
         flex-direction: column;
