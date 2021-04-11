@@ -126,6 +126,10 @@ text
         color: white;
     }
 
+    .header__text:hover {
+        color: #4B45B2;
+    }
+
     .nav__list {
         display: none;
         flex-direction: column;

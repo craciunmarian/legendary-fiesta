@@ -185,6 +185,12 @@ input:checked + label {
     
 }
 
+@media screen and (max-width: 1200px) {
+    .header__text {
+        color: white;
+    }
+}
+
 @media screen and (max-width: 800px) {
 
     svg {

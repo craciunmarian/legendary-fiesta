@@ -124,6 +124,10 @@ footer {
 
 @media screen and (max-width: 1000px) { 
 
+    .header__text {
+        color: white;
+    }
+
     .gallery {
         display: flex;
         flex-direction: column;
