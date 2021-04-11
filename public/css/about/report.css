@@ -1,11 +1,27 @@
 body
 {
 font-family: 'Open Sans', sans-serif;
-margin: 10px;
+width: 60vw;
+margin: auto;
+text-align: justify;
+color: #6b6e77;
 }
 
 h1
 {
-font-size: 50px;
+font-size: 7vh;
 text-align: center;
+color: black;
+}
+
+h2
+{
+    font-size: 3vh;
+    color: black;
+    
+}
+
+h3
+{
+    color: #6b6e77;
 }
