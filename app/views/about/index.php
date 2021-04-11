@@ -16,7 +16,7 @@
     <header>
         <nav>
             <button class="hamburger" id="hamburger">
-                <img src="../../../../TW_UnWe_MVC/public/assets/about/hamburger.svg" class="hamburger__icon">
+                <img src="../../../../TW_UnWe_MVC/public/assets/common/hamburger.svg" class="hamburger__icon">
             </button>
             <ul class="nav__list" id="nav__list">
                 <li><a class="header__text" href="../public/home">Acasă</a></li>

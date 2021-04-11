@@ -28,17 +28,6 @@
     padding: 0;
 }
 
-.hamburger {
-    background-color: transparent;
-    border: 0;
-    color: white;
-    cursor: pointer;
-    display: none;
-    position: fixed;
-    right: 2%;
-    top: 2%;
-}
-
 .hamburger:focus {
     outline: none;
 }
