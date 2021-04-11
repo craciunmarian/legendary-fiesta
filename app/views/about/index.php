@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/about/styles.css">
     <link rel="stylesheet" href="../../../../TW_UnWe_MVC/public/css/about/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="../../../../TW_UnWe_MVC/public/scripts/about/hamburger.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <title>UnWe - Unemployment Web About</title>
 </head>
@@ -17,12 +18,12 @@
             <button class="hamburger" id="hamburger">
                 <img src="../../../../TW_UnWe_MVC/public/assets/about/hamburger.svg" class="hamburger__icon">
             </button>
-            <ul class="nav__list">
+            <ul class="nav__list" id="nav__list">
                 <li><a class="header__text" href="../public/home">Acasă</a></li>
                 <li><a class="header__text" href="../public/visualizer">Statistici</a></li>
                 <li><a class="header__text" href="../public/about">Despre noi</a></li>
             </ul>
-        </nav>   
+        </nav>
     </header>
     <div class="gallery">
         <div class="portrait">

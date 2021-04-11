@@ -33,7 +33,7 @@
     border: 0;
     color: white;
     cursor: pointer;
-    visibility: hidden;
+    display: none;
     position: fixed;
     right: 2%;
     top: 2%;
@@ -161,12 +161,16 @@ footer {
 
 @media screen and (max-width: 1000px) {
     
-    .hamburger {
-        visibility: visible;
+    .nav__list {
+        display: none;
     }
 
-    header {
-        visibility: hidden;
+    .nav__list.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
     }
 
     .gallery {
