@@ -13,15 +13,21 @@
 </head>
 
 
-<body>
+<body id="body">
     <img class= "image__asset" src="../../../TW_UnWe_MVC/public/assets/home/asset-main.png" alt="Error loading asset">
-<header>
-        <div class="header">
-        <a class="header__text" href="../public/home">Acasă</a>
-        <a class="header__text" href="../public/visualizer">Statistici</a>
-        <a class="header__text" href="../public/about">Despre noi</a>   
-        </div>
-</header>
+    <header>
+        <nav class="nav__container" id="nav__container">
+            <button class="hamburger" id="hamburger">
+                <img src="../../../../TW_UnWe_MVC/public/assets/common/hamburger-white.svg" class="hamburger__icon" id="hamburger__icon" alt="burger">
+                <img src="../../../../TW_UnWe_MVC/public/assets/common/close.svg" class="close__icon" id="close__icon" alt="close">
+            </button>
+            <ul class="nav__list" id="nav__list">
+                <li><a class="header__text" href="../public/home">Acasă</a></li>
+                <li><a class="header__text" href="../public/visualizer">Statistici</a></li>
+                <li><a class="header__text" href="../public/about">Despre noi</a></li>
+            </ul>
+        </nav>
+    </header>
 
 <h1 class="title text-center">
     Șomajul în România
@@ -54,6 +60,7 @@
     <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
 </div>
 </section>
+<script src="../../../../TW_UnWe_MVC/public/scripts/about/hamburger.js"></script>
 
 </body>
 
