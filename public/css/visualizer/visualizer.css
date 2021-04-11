@@ -59,7 +59,7 @@ form {
     font-family: 'Open Sans', sans-serif;
     color: white;
     /* font-size: 0.72vw; */
-    font-size: 50%;
+    font-size: 60%;
     font-weight: 600;
     margin: 5em;
 
@@ -173,13 +173,13 @@ input:checked + label {
     
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
     .header__text {
         color: white;
     }
 }
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 1000px) {
 
     svg {
         width: 60vw;
@@ -209,7 +209,7 @@ input:checked + label {
     }
 }
 
-@media screen and (max-width: 830px) and (min-width:550px) {
+@media screen and (max-width: 1000px) and (min-width:700px) {
         form {
         width: 50vw;
         margin: 5em 0em;
