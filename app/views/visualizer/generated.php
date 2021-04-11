@@ -1,1 +1,1 @@
-Statistica generata
+placeholder statistic
