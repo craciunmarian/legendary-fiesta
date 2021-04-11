@@ -42,6 +42,20 @@ text
 
 }
 
+.footer__text {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+
+    margin-left: 1em;
+    margin-right: 1em;
+    white-space: nowrap;
+
+    font-size: 0.7em;
+
+    line-height: 40px;
+}
+
 .subtitle
 {
     position: relative;
