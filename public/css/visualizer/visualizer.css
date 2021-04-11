@@ -158,8 +158,12 @@ input:checked + label {
     border-radius: 0.4em;
     color: white;
     font-size: 16px;
-    border: none;
+    border: 3px solid #928DD5;
     font-weight: bold;
+}
+
+.export-btn:hover {
+    border: 3px solid #4B45B2;
 }
 
 .form-and-chart {
