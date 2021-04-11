@@ -1,31 +1,11 @@
-html 
-{
-    font-size: 156.25%;
-    min-height: 100%;
-    
+.header__text {
+    color:rgb(131, 130, 130)
 }
 
-body
-{
-    background-color: #E7EFFD;
-    
+.header__text:hover {
+    color: #938ED5;
 }
 
-.header
-{
-    width: 25%;
-    display: flex;
-    margin: auto;
-    justify-content: space-around;
-    
-    position: absolute;
-    top: 1.5vw;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    visibility: visible;
-}
 .text1
 {
 
@@ -36,13 +16,25 @@ body
 
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtitle
+{
+    margin-top: 7%;
+    text-align: center;
+}
+
 svg {
-    width: 50vw;
-    position: absolute;
-    max-width: 60%;
+    width: 40vw;
+    height:40vw;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%;
+    margin-top: 0vw;
     left: 0%;
     right: 0%;
     /* top: 0%; */
@@ -53,30 +45,19 @@ path:hover {
     fill: #505050;
 }
 
-h1 {
-    position: relative;
-    margin-top: 10%;
-    text-align: center;
-}
-
-.subtitle
-{
-    font-family: 'Open Sans', sans-serif;
-    color: #3F3D56;
-    font-weight: 600;
-    font-size: 3.2vw;
-}
 
 form {
     position:relative;
-    margin-top: 70vh;
     font-family: 'Open Sans', sans-serif;
     color: white;
-    font-size: 0.72vw;
+    /* font-size: 0.72vw; */
+    font-size: 50%;
     font-weight: 600;
+    margin: 5em;
 
     background-color: #928DD5;
     width: fit-content;
+    height: min-content;
     padding: 1em;
     border-radius: 0.4em;
 }
@@ -84,9 +65,11 @@ form {
 select {
     font-family: 'Open Sans', sans-serif;
     color: #3F3D56;
-    font-size: 0.72vw;
+    /* font-size: 0.72vw; */
+    font-size: 100%;
     font-weight: 600;
     border-radius: 0.4em;
+    margin: 0.2em 0em;
 }
 
 .visualizer-form__judete select {
@@ -101,6 +84,10 @@ select {
 .visualizer-form__period select {
     margin-left: 1em;
     margin-right: 1em; 
+}
+
+.visualizer-form__period label {
+    margin-right: 1em;
 }
 
 .visualizer-form__period {
@@ -123,8 +110,14 @@ input[type=checkbox] + label {
     border-radius: 0.7em;
 }
 
+input[type=checkbox] + label:hover {
+    border: 3px solid #4B45B2;
+}
+
 input:checked + label {
-    border: 3px solid red;
+    background-color: #4B45B2;
+    color: white;
+    font-weight: bold;
 }
 
 .visualizer-form__2-checkboxes {
@@ -132,16 +125,79 @@ input:checked + label {
     justify-content: space-around;
 }
 
-.visualizer-form__education label {
+.visualizer-form__education label, .visualizer-form__age label {
     margin: 0.5em;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.visualizer-form__age label {
-    margin: 0.5em;
+.visualizer-form__manner {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+}
+
+.visualizer-form__manner label {
+    margin: 0em 1em;
+}
+
+.export-btn {
+    margin: 2em;
+    background-color: #928DD5;
+    padding: 0.8em 5em;
+    border-radius: 0.4em;
+    color: white;
+    font-size: 16px;
+    border: none;
+    font-weight: bold;
+}
+
+.form-and-chart {
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+}
+
+.form-and-chart img {
+    width: 40vw;
+    height: 40vw;
+    
+}
+
+@media screen and (max-width: 800px) {
+
+    svg {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .form-and-chart {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-and-chart img {
+        width: 50vw;
+        height: 50vw;
+    }
+
+    form {
+        width: 75vw;
+        margin: 5em 0em;
+    }
+
+    .visualizer-form__period {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 830px) and (min-width:550px) {
+        form {
+        width: 50vw;
+        margin: 5em 0em;
+    }
 }
