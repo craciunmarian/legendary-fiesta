@@ -16,6 +16,20 @@
 
 }
 
+header {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;   
+    visibility: visible;
+}
+
 main {
     display: flex;
     flex-direction: column;

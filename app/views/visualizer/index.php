@@ -14,11 +14,17 @@
 
 <body>
     <header>
-        <div class="header">
-            <a class="header__text" href="../public/home">Acasă</a>
-            <a class="header__text" href="../public/visualizer">Statistici</a>
-            <a class="header__text" href="../public/about">Despre noi</a>
-        </div>
+        <nav class="nav__container" id="nav__container">
+            <button class="hamburger" id="hamburger">
+                <img src="../../../../TW_UnWe_MVC/public/assets/common/hamburger.svg" class="hamburger__icon" id="hamburger__icon" alt="burger">
+                <img src="../../../../TW_UnWe_MVC/public/assets/common/close.svg" class="close__icon" id="close__icon" alt="close">
+            </button>
+            <ul class="nav__list" id="nav__list">
+                <li><a class="header__text" href="../public/home">Acasă</a></li>
+                <li><a class="header__text" href="../public/visualizer">Statistici</a></li>
+                <li><a class="header__text" href="../public/about">Despre noi</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -179,17 +185,17 @@
 
                 <section class="visualizer-form__manner">
                     <label>
-                        <input name="manner" type="radio" checked>
+                        <input name="manner" type="radio" checked value="bar">
                         <span> Bar chart </span>
                     </label>
 
                     <label>
-                        <input name="manner" type="radio">
+                        <input name="manner" type="radio" value="pie">
                         <span> Pie chart </span>
                     </label>
 
                     <label>
-                        <input name="manner" type="radio">
+                        <input name="manner" type="radio" value="map">
                         <span> Hartă </span>
                     </label>
                 </section>
@@ -200,6 +206,7 @@
         <input class="export-btn" type="submit" form="main-form" value="Export">
 
     </main>
+    <script src="../../../../TW_UnWe_MVC/public/scripts/about/hamburger.js"></script>
 
 </body>
 
