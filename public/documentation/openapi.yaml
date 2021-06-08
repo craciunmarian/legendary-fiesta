@@ -1,0 +1,102 @@
+openapi: 3.0.0
+info:
+  title: UNWE - Unemployment Web Visualizer
+  description: API to get official data about unemployment in Romania.
+  version: 1.0.0
+servers:
+  - url: localhost
+paths:
+  /query:
+    get:
+      summary: Queries the database to get various unemployment data.
+      description: Returns all available data about the counties specified, from the specified start date until the most recent date, taking into account the mentioned categories.
+      parameters:
+        - name: from-json 
+          in: query
+          required: false
+          schema:
+            type: boolean
+          description: Allows the request parameters to be sent and parsed from the request body in JSON format
+        - name: start-date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: counties
+          in: query
+          required: true
+          schema:
+            type: array
+            items: 
+              type: string
+        - name: categories
+          in: query
+          required: false
+          schema:
+            type: array
+            items: 
+              type: string
+          description: If left empty, 'total' category is assumed. Categories may be one (or more) from the following - total, sex, compensation, environment, age, education
+      responses:
+        '200':    # status code
+          description: A JSON array of unemployment data per months and counties
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  $ref: '#/components/schemas/QueryResponse'
+                  
+                    
+        '400':
+          description: Bad request. Probably due to illegal or missing request parameters
+          content: 
+            text/plain:
+              example: "Various error messages"
+        '500':
+          description: Internal server error. Probably due to connection issues with the Database or other unexpected errors.
+          content:
+            text/plain:
+              example: "DB error"
+              
+  /refreshdb:
+    get:
+      summary: Refreshes the Database with the most recent data available
+      description: The data is taken directly from the official <a href="https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc">Romanian government website</a>
+      responses:
+        '200':
+          description: ok
+        '500':
+          description: Internal server error. Possibly because of connectivity issues with the database or because of issues with the government website.
+components:
+  schemas:
+    QueryResponse:
+      type: object
+      properties:
+        luna: 
+          type: string
+          format: date
+        judet:
+          type: string
+          example: iasi
+        nr_total:
+          type: integer
+          example: 3875
+      required:
+        - luna
+        - judet
+        - nr_total
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          

@@ -1,12 +1,15 @@
 <?php
 
-class Validator
+class Utils
 {
 
-    static function validateData($data)
+    static function validateRequestData($data)
     {
         if (!isset($data["start-date"]))
             return "Start date must be specified!";
+
+        if (!isset($data["counties"]))
+            return "At least one county must be specified!";
 
         if (!isset($data["categories"]) || count($data["categories"]) == 0)
             $data["categories"] = ["total"];

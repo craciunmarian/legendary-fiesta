@@ -98,7 +98,7 @@ class Db
 
     public function select($data)
     {
-        $sql = 'SELECT luna, judet ' . implode(",", $data["columns"]) . ' FROM unemployment_data WHERE luna >= ? AND judet IN (?' . str_repeat(',?', count($data["counties"]) - 1) . ')';
+        $sql = 'SELECT luna, judet, ' . implode(",", $data["columns"]) . ' FROM unemployment_data WHERE luna >= ? AND judet IN (?' . str_repeat(',?', count($data["counties"]) - 1) . ')';
 
         $statement = $this->conn->prepare($sql);
         $statement->bind_param(str_repeat('s', count($data["counties"]) + 1), $data["start-date"], ...$data["counties"]);

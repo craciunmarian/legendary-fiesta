@@ -1,6 +1,6 @@
 <?php
 
-require_once('../app/models/utils/validator.php');
+require_once('../app/models/utils.php');
 
 class Api extends Controller
 {
@@ -38,9 +38,9 @@ class Api extends Controller
                 if (!isset($data))
                     $data = "JSON improperly formatted or has reached recursion limit";
                 else
-                    $data = Validator::validateData($data);
+                    $data = Utils::validateRequestData($data);
             } else {
-                $data = Validator::validateData(array_slice($_GET, 2));
+                $data = Utils::validateRequestData(array_slice($_GET, 1));
             }
 
             if (is_string($data)) {
