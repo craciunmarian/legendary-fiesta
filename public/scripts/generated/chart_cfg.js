@@ -1,3 +1,4 @@
+    var ctx = document.getElementById('chart');
     var thing = 'line';
 
     const colors = [
@@ -56,7 +57,7 @@
         console.log(height);
 
         var imgData = canvas.toDataURL("image/png", 1.0);
-        var pdf = new jsPDF('l', 'pt', [width, height]);
+        var pdf = new jsPDF('l', 'px', [width, height]);
       
         pdf.addImage(imgData, 'PNG', 0, 0, width, height);
         pdf.save("download.pdf");
