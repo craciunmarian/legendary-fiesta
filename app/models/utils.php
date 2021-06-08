@@ -16,6 +16,8 @@ class Utils
         else if (!in_array("total", $data["categories"]))
             array_push($data["categories"], "total");
 
+        foreach ($data["counties"] as $county)
+            $county = self::format_city_names($county);
 
         $data["columns"] = [];
         foreach ($data["categories"] as $category) {
