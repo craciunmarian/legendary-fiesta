@@ -32,10 +32,17 @@ class Api extends Controller
         try {
             $db = $this->model('Db');
 
-            $json = file_get_contents('php://input');
-            $data = json_decode($json, true);
+            if (isset($_GET["from-json"]) && $_GET["from-json"] == "true") {
+                $json = file_get_contents('php://input');
+                $data = json_decode($json, true);
+                if (!isset($data))
+                    $data = "JSON improperly formatted or has reached recursion limit";
+                else
+                    $data = Validator::validateData($data);
+            } else {
+                $data = Validator::validateData(array_slice($_GET, 2));
+            }
 
-            $data = Validator::validateJsonData($data);
             if (is_string($data)) {
                 http_response_code(400);
                 header("Content-type: text/plain");
