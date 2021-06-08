@@ -12,9 +12,9 @@ class Visualizer extends Controller
 
     public function generated()
     {
-        //$this->view('visualizer/generated');
+        $this->view('visualizer/generated');
 
 
-        echo var_dump($_GET);
+        // echo var_dump($_GET);
     }
 }
