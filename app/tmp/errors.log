@@ -1,0 +1,9 @@
+[08-Jun-2021 15:43:28 Europe/Berlin] PHP Warning:  require_once(../models/utils/validator.php): Failed to open stream: No such file or directory in C:\Projects\TW\TW_UnWe_MVC\app\controllers\api.php on line 3
+[08-Jun-2021 15:44:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in C:\Projects\TW\TW_UnWe_MVC\app\models\utils\validator.php:7
+Stack trace:
+#0 C:\Projects\TW\TW_UnWe_MVC\app\controllers\api.php(39): Validator::validateJsonData(Object(stdClass))
+#1 C:\Projects\TW\TW_UnWe_MVC\app\core\App.php(28): Api->query()
+#2 C:\Projects\TW\TW_UnWe_MVC\public\index.php(5): App->__construct()
+#3 {main}
+  thrown in C:\Projects\TW\TW_UnWe_MVC\app\models\utils\validator.php on line 7
+[08-Jun-2021 15:47:47 Europe/Berlin] Start date must be specified!

@@ -2,6 +2,12 @@
 
 class Db
 {
+    // private const cleardb_url = parse_url("mysql://b5f3fd35c0ee8c:760ad60e@eu-cdbr-west-01.cleardb.com/heroku_5fa867a10f7faee?reconnect=true");
+    // private const servername = "eu-cdbr-west-01.cleardb.com";
+    // private const username = "b5f3fd35c0ee8c";
+    // private const password = "760ad60e";
+    // private const dbname = "heroku_5fa867a10f7faee";
+
     private const servername = "localhost";
     private const username = "tw";
     private const password = "tw";
@@ -77,7 +83,16 @@ class Db
         }
 
         array_unshift($params, 0);
-        $this->insertStmt->bind_param('isiiidddiiiiiiiiiiiiiiiiiiiiii', ...$params);
+        $this->insertStmt->bind_param('issiidddiiiiiiiiiiiiiiiiiiiiii', ...$params);
         $this->insertStmt->execute();
+    }
+
+    public function getMaxDate()
+    {
+        $result = $this->conn->query("SELECT MAX(luna) FROM unemployment_data");
+        if ($result === FALSE || $result->num_rows != 1)
+            throw new Exception("Couldn't get max date from db");
+
+        return $result->fetch_row()[0];
     }
 }

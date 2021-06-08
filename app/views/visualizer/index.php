@@ -84,20 +84,20 @@
 
             <form id="main-form" class="visualizer-form" method="get" action="/visualizer/generated">
                 <section class="visualizer-form__judete">
-                    <select name="judet1">
+                    <select name="county1">
                         <?php
                         foreach ($data as $judet)
                             echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
                         ?>
                     </select>
 
-                    <select name="judet2">
+                    <select name="county2">
                         <?php
                         foreach ($data as $judet)
                             echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
                         ?> </select>
 
-                    <select name="judet3">
+                    <select name="county3">
                         <?php
                         foreach ($data as $judet)
                             echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
@@ -105,10 +105,10 @@
                 </section>
 
                 <section class="visualizer-form__2-checkboxes">
-                    <input name="indemnizati" id="indemnizati" type="checkbox">
+                    <input name="compensated" id="indemnizati" type="checkbox">
                     <label for="indemnizati">Indemnizați</label>
 
-                    <input name="neindemnizati" id="neindemnizati" type="checkbox">
+                    <input name="unpaid" id="neindemnizati" type="checkbox">
                     <label for="neindemnizati"> Neindemnizați </label>
                 </section>
 
@@ -155,15 +155,15 @@
                 <section class="visualizer-form__education">
                     <label>
                         <span> Nivel de educație (permite alegere multiplă) </span>
-                        <select name="education" multiple>
-                            <option value="0"> Toate nivelele de educație </option>
-                            <option value="1"> Fără studii </option>
-                            <option value="2"> Învățământ primar </option>
-                            <option value="3"> Învățământ gimnazial </option>
-                            <option value="4"> Învățământ liceal </option>
-                            <option value="5"> Învățământ postliceal </option>
-                            <option value="6"> Învățământ profesional/arte și meserii </option>
-                            <option value="7"> Învățământ universitar </option>
+                        <select name="education[]" multiple>
+                            <option value="all" selected> Toate nivelele de educație </option>
+                            <option value="none"> Fără studii </option>
+                            <option value="primary"> Învățământ primar </option>
+                            <option value="middle"> Învățământ gimnazial </option>
+                            <option value="high"> Învățământ liceal </option>
+                            <option value="post-secondary"> Învățământ postliceal </option>
+                            <option value="professional"> Învățământ profesional/arte și meserii </option>
+                            <option value=""> Învățământ universitar </option>
                         </select>
                     </label>
                 </section>
@@ -171,14 +171,14 @@
                 <section class="visualizer-form__age">
                     <label>
                         <span> Categoria de vârstă (permite alegere multiplă) </span>
-                        <select name="age" multiple>
-                            <option value="0"> Toate categoriile de vârstă </option>
-                            <option value="1"> Sub 25 de ani </option>
-                            <option value="2"> 25-29 de ani </option>
-                            <option value="3"> 30-39 de ani </option>
-                            <option value="4"> 40-49 de ani </option>
-                            <option value="5"> 50-55 de ani </option>
-                            <option value="6"> peste 55 de ani </option>
+                        <select name="age[]" multiple>
+                            <option value="all" selected> Toate categoriile de vârstă </option>
+                            <option value="under 25"> Sub 25 de ani </option>
+                            <option value="25-29"> 25-29 de ani </option>
+                            <option value="30-39"> 30-39 de ani </option>
+                            <option value="40-49"> 40-49 de ani </option>
+                            <option value="50-55"> 50-55 de ani </option>
+                            <option value="over 55"> peste 55 de ani </option>
                         </select>
                     </label>
                 </section>
