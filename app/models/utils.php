@@ -46,4 +46,32 @@ class Utils
 
         return $data;
     }
+
+    static function format_city_names($name)
+    {
+
+        $diacritice = array("ă", "â", "î", "ș", "ț", "?");
+        $replace_diacritice = array("a", "a", "i", "s", "t", "s");
+
+        $name = strtolower($name);
+        $name = str_replace($diacritice, $replace_diacritice, $name);
+        $name = str_replace(" ", "", $name);
+
+        if ($name == "mun.buc." || $name == "municipiulbucuresti")
+            $name = "bucuresti";
+
+        if ($name == "satum." || $name == "satumare")
+            $name = "satu-mare";
+
+        if ($name == "totalgeneral" || $name == "totaltara")
+            $name = "total";
+
+        if ($name == "bistritanasaud" || $name == "bistrita")
+            $name = "bistrita-nasaud";
+
+        if ($name == "caras")
+            $name = "caras-severin";
+
+        return $name;
+    }
 }
