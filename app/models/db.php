@@ -95,4 +95,24 @@ class Db
 
         return $result->fetch_row()[0];
     }
+
+    public function select($data)
+    {
+        $sql = 'SELECT luna, judet ' . implode(",", $data["columns"]) . ' FROM unemployment_data WHERE luna >= ? AND judet IN (?' . str_repeat(',?', count($data["counties"]) - 1) . ')';
+
+        $statement = $this->conn->prepare($sql);
+        $statement->bind_param(str_repeat('s', count($data["counties"]) + 1), $data["start-date"], ...$data["counties"]);
+
+        $statement->execute();
+        $result = $statement->get_result();
+
+        $ret = [];
+        for ($i = 0; $i < $result->num_rows; $i++) {
+            array_push($ret, $result->fetch_array(MYSQLI_ASSOC));
+        }
+
+        $statement->close();
+
+        return $ret;
+    }
 }

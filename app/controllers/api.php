@@ -35,12 +35,12 @@ class Api extends Controller
             $json = file_get_contents('php://input');
             $data = json_decode($json, true);
 
-            $validatorResponse = Validator::validateJsonData($data);
-            if ($validatorResponse !== TRUE) {
+            $data = Validator::validateJsonData($data);
+            if (is_string($data)) {
                 http_response_code(400);
                 header("Content-type: text/plain");
                 // error_log($validatorResponse);
-                echo $validatorResponse;
+                echo $data;
                 return;
             }
 
@@ -50,7 +50,14 @@ class Api extends Controller
                 http_response_code(400);
                 header("Content-type: text/plain");
                 echo "start date can't be later than the most recent date from DB (" . $maxDbDate . ")";
+                return;
             }
+
+            $result = $db->select($data);
+
+            http_response_code(200);
+            header("Content-type: application/json");
+            echo json_encode($result);
         } catch (Exception $ex) {
             http_response_code(500);
             header("Content-type: text/plain");
