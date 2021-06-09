@@ -52,7 +52,6 @@ class Importer
 
 
             $this->addToDB = array();
-            echo "<br><br><br>";
         }
     }
 
@@ -82,7 +81,7 @@ class Importer
 
 
             //var_dump($this->addToDB[$i]);
-            echo "<br><br>";
+
         }
     }
 
@@ -213,7 +212,7 @@ class Importer
 
 
 
-        // echo "<br>";
+
         //var_dump($this->judete);
 
         // web crawling etc.
