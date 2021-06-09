@@ -91,8 +91,7 @@
             <section>
                 <h2> References </h2>
                 <p>
-                    All the data this website uses will be extracted from he Romanian government's official <a href="https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc">website</a>, using a webcrawler. We used the <a href="https://www.mysql.com/">MySQL</a> database provided by <a href="https://www.phpmyadmin.net/">phpMyAdmin</a> to store and query the extracted data. We displayed the data in the form of maps and charts using the <a href=" https://openlayers.org/">Openlayers</a> and <a href="https://www.chartjs.org/">Chartjs</a> libraries.
-                </p>
+                    All the data this website uses will be extracted from he Romanian government's official <a href="https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc">website</a>, using a webcrawler. We used the <a href="https://www.mysql.com/">MySQL</a> database provided by <a href="https://www.phpmyadmin.net/">phpMyAdmin</a> to store and query the extracted data. We displayed the data in the form of maps and charts using the <a href=" https://openlayers.org/">Openlayers</a> and <a href="https://www.chartjs.org/">Chartjs</a> libraries. We used an open-source <a href="https://github.com/MrRio/jsPDF">library</a> for converting the charts to PDF format. </p>
             </section>
         </section>
 
