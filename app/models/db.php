@@ -57,6 +57,7 @@ class Db
     private $conn;  // database connection
     private $unemploymentInsertStmt;  // prepared insert statement
     private $tokenInsertStmt;
+    private $tokenLookupStmt;
 
     public function __construct()
     {
@@ -67,6 +68,12 @@ class Db
 
         $this->unemploymentInsertStmt = $this->conn->prepare(self::unemploymentInsertStatement);
         $this->tokenInsertStmt = $this->conn->prepare(self::tokensInsertStatement);
+        if ($this->tokenInsertStmt === FALSE) {
+            $this->createTokensTable();
+            $this->tokenInsertStmt = $this->conn->prepare(self::tokensInsertStatement);
+        }
+
+        $this->tokenLookupStmt = $this->conn->prepare("SELECT token FROM tokens WHERE token=?");
     }
 
     public function __destruct()
@@ -74,6 +81,7 @@ class Db
         $this->conn->close();
         $this->unemploymentInsertStmt->close();
         $this->tokenInsertStmt->close();
+        $this->tokenLookupStmt->close();
     }
 
     public function getConnection()
@@ -142,13 +150,10 @@ class Db
 
     public function checkToken($token)
     {
-        $result = $this->conn->query("SELECT token FROM tokens");
+        $this->tokenLookupStmt->bind_param('s', $token);
+        $this->tokenLookupStmt->execute();
+        $result = $this->tokenLookupStmt->get_result();
 
-        foreach ($result->fetch_all() as $row) {
-            if (strcmp($row[0], $token) == 0)
-                return true;
-        }
-
-        return false;
+        return $result->num_rows >= 1;
     }
 }
