@@ -12,22 +12,22 @@ const colors = [
     '#FFFFFF',
 ];
 
-var query = '/api/query?' + '&from-json=false' + '&start-date=2012-05-01';
 var ctx = document.getElementById('chart');
 let params = new URLSearchParams(location.search);
 var chartType = params.get("manner");
+var query = '/api/query?' + '&from-json=false' + '&start-date=' + params.get("start-date") + '-01';
 
 var county1, county2, county3;
 
-if (params.get("county1") != 'ALEGE JUDEŢUL') {
+if (params.has("county1")) {
     query = query + '&counties[]=' + params.get("county1").toLowerCase();
     county1 = params.get("county1");
 }
-if (params.get("county2") != 'ALEGE JUDEŢUL') {
+if (params.has("county2")) {
     query = query + '&counties[]=' + params.get("county2").toLowerCase();
     county2 = params.get("county2");
 }
-if (params.get("county3") != 'ALEGE JUDEŢUL') {
+if (params.has("county3")) {
     query = query + '&counties[]=' + params.get("county3").toLowerCase();
     county3 = params.get("county3");
 }
@@ -49,6 +49,8 @@ if (params.has("urban-men") || params.has("rural-men") || params.has("urban-wome
 if (params.has("rate")) {
     query = query + '&categories[]=rate';
 }
+
+console.log(query);
 
 var i = 0;
 
@@ -127,29 +129,42 @@ function getBarChart(data) {
         var dataset3 = data[2];
     }
 
+    var ok = 0;
+
     if (params.has("women")) {
         addData('Femei', [dataset1?.nr_barbati, dataset2?.nr_femei, dataset3?.nr_femei]);
+        ok = 1;
     }
     if (params.has("men")) {
         addData('Barbati', [dataset1?.nr_barbati, dataset2?.nr_barbati, dataset3?.nr_barbati]);
+        ok = 1;
     }
     if (params.has("compensated")) {
         addData('Indemnizați', [dataset1?.nr_indemnizati, dataset2?.nr_indemnizati, dataset3?.nr_indemnizati]);
+        ok = 1;
     }
     if (params.has("unpaid")) {
         addData('Neindemnizați', [dataset1?.nr_neindemnizati, dataset2?.nr_neindemnizati, dataset3?.nr_neindemnizati]);
+        ok = 1;
     }
     if (params.has("urban-men")) {
         addData('Barbati - Urban', [dataset1?.nr_barbati_urban, dataset2?.nr_barbati_urban, dataset3?.nr_barbati_urban]);
+        ok = 1;
     }
     if (params.has("rural-men")) {
         addData('Barbati - Rural', [dataset1?.nr_barbati_rural, dataset2?.nr_barbati_rural, dataset3?.nr_barbati_rural]);
+        ok = 1;
     }
     if (params.has("urban-women")) {
         addData('Femei - Urban', [dataset1?.nr_femei_urban, dataset2?.nr_femei_urban, dataset3?.nr_femei_urban]);
+        ok = 1;
     }
-    if (params.has("rural-wpmen")) {
+    if (params.has("rural-women")) {
         addData('Femei - Rural', [dataset1?.nr_femei_rural, dataset2?.nr_femei_rural, dataset3?.nr_femei_rural]);
+        ok = 1;
+    }
+    if(ok == 0) {
+        addData('Total', [dataset1?.nr_total, dataset2?.nr_total, dataset3?.nr_fara_total]);
     }
     if (params.has("education[]")) {
         let aux = params.getAll("education[]");
@@ -315,6 +330,8 @@ function exportToPDF() {
     doc.addImage(canvasImg, 'PNG', 0, 0, width, height);
     doc.save('canvas.pdf');
 }
+
+// console.log(options);
 
 // chart.options.animation = false;
 // chart.options.responsive = false;

@@ -38,7 +38,7 @@ function createSvgLink(filename, linkText, chart, chartSettings) {
   let height = chartCanvas.offsetHeight;
 
   // create an svg version of the chart
-  let svgContext = C2S(width, height);
+  let svgContext = C2S(500, 500);
   let svgChart = new Chart(svgContext, chartSettings);
 
   // create download link
