@@ -190,8 +190,8 @@
                     </label>
 
                     <label>
-                        <input name="manner" type="radio" value="radar">
-                        <span> Radar chart </span>
+                        <input name="manner" type="radio" value="pie">
+                        <span> Test </span>
                     </label>
 
                     <label>

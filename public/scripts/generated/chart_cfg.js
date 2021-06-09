@@ -53,12 +53,20 @@ if (params.has("rate")) {
 var i = 0;
 
 var chart = new Chart(ctx, {
-    type: 'bar',
+    type: chartType,
     data: {
     },
     options: {
         responsive: true,
         animation: true,
+        plugins: {
+            legend: {
+                display: true,
+                labels: {
+                    color: 'black'
+                }
+            }
+        }
     }
 });
 
@@ -67,7 +75,7 @@ function addData(label, dataAdd) {
         label: label,
         data: dataAdd,
         backgroundColor: colors[i],
-        borderColor: colors[i]
+        borderColor: colors[10]
     });
 
     chart.update();
@@ -128,21 +136,44 @@ function getChart(data) {
         console.log(aux);
         aux.forEach(element => {
             switch (element) {
-                case 'none': console.log("1");
+                case 'none': addData('Fără studii', [dataset1?.nr_fara_studii, dataset2?.nr_fara_studii, dataset3?.nr_fara_studii]);
                     break;
-                case 'primary': console.log("2");
+                case 'primary': addData('Inv. primar', [dataset1?.nr_primar, dataset2?.nr_primar, dataset3?.nr_primar]);
                     break;
-                case 'middle': console.log("1");
+                case 'middle': addData('Inv. gimnazial', [dataset1?.nr_gimnazial, dataset2?.nr_gimnazial, dataset3?.nr_gimnazial]);
                     break;
-                case 'high': console.log("1");
+                case 'high': addData('Inv. liceal', [dataset1?.nr_liceal, dataset2?.nr_liceal, dataset3?.nr_liceal]);
                     break;
-                case 'post-secondary': console.log("1");
+                case 'post-secondary': addData('Inv. postliceal', [dataset1?.nr_postliceal, dataset2?.nr_postliceal, dataset3?.nr_postliceal]);
                     break;
-                case 'professional': console.log("1");
+                case 'professional': addData('Inv. profesional', [dataset1?.nr_profesional, dataset2?.nr_profesional, dataset3?.nr_profesional]);
                     break;
-                case 'uni': console.log("1");
+                case 'uni': addData('Inv. universitar', [dataset1?.nr_universitar, dataset2?.nr_universitar, dataset3?.nr_universitar]);
                     break;
-                case 'all': console.log("all");
+                case 'all': addData('Total', [dataset1?.nr_total, dataset2?.nr_total, dataset3?.nr_fara_total]);
+                    break;
+                default: console.log("idk");
+            }
+        });
+    }
+    if (params.has("age[]")) {
+        let aux = params.getAll("age[]");
+        console.log(aux);
+        aux.forEach(element => {
+            switch (element) {
+                case 'under 25': addData('<25', [dataset1?.nr_sub_25, dataset2?.nr_sub_25, dataset3?.nr_sub_25]);
+                    break;
+                case '25-29': addData('25-29', [dataset1?.nr_25_29, dataset2?.nr_25_29, dataset3?.nr_25_29]);
+                    break;
+                case '30-39': addData('30-39', [dataset1?.nr_30_39, dataset2?.nr_30_39, dataset3?.nr_30_39]);
+                    break;
+                case '40-49': addData('40-49', [dataset1?.nr_40_49, dataset2?.nr_40_49, dataset3?.nr_40_49]);
+                    break;
+                case '50-55': addData('50-55', [dataset1?.nr_50_55, dataset2?.nr_50_55, dataset3?.nr_50_55]);
+                    break;
+                case 'over 55': addData('55<', [dataset1?.nr_peste_55, dataset2?.nr_peste_55, dataset3?.nr_peste_55]);
+                    break;
+                case 'all': addData('Total', [dataset1?.nr_total, dataset2?.nr_total, dataset3?.nr_total]);
                     break;
                 default: console.log("idk");
             }
