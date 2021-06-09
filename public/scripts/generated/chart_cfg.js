@@ -422,6 +422,8 @@ function getLineChart(data) {
     var county2Array = [];
     var county3Array = [];
 
+    console.log(data);
+
     data.forEach(element => {
 
         element.nr_total = 0;
@@ -443,7 +445,7 @@ function getLineChart(data) {
             aux += element.nr_barbati_urban;
         }
         if (element.nr_barbati_rural) {
-            aux += element.element?.nr_barbati_rural;
+            aux += element.nr_barbati_rural;
         }
         if (element.nr_femei_urban) {
             aux += element.nr_femei_urban;
@@ -499,20 +501,22 @@ function getLineChart(data) {
 
         element.nr_total += aux;
 
+        
         if (index < labelNr) {
             index++;
         }
 
-        if ((county1?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == element.judet) && index == 1) {
+        if (index == 1) {
             addLabel(element.luna);
             county1Array.push(element.nr_total);
-            console.log(element.nr_total);
         }
-        if ((county2?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == element.judet) && index == 2) {
+        if (index == 2) {
             county2Array.push(element.nr_total);
+            console.log('thing1');
         }
-        if ((county3?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == element.judet) && index == 3) {
+        if (index == 3) {
             county3Array.push(element.nr_total);
+            console.log('thing2');
         }
 
         if (index == labelNr) {
