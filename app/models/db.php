@@ -19,11 +19,11 @@ class Db
         nr_total INT(10),
         nr_femei INT(10),
         nr_barbati INT(10),
+        nr_indemnizati INT(10),
+        nr_neindemnizati INT(10),
         rata_total DECIMAL(3,2),
         rata_femei DECIMAL(3,2),
         rata_barbati DECIMAL(3,2),
-        nr_indemnizati INT(10),
-        nr_neindemnizati INT(10),
         nr_urban_total INT(10),
         nr_femei_urban INT(10),
         nr_barbati_urban INT(10),
@@ -103,7 +103,7 @@ class Db
         }
 
         array_unshift($params, 0);
-        $this->unemploymentInsertStmt->bind_param('issiidddiiiiiiiiiiiiiiiiiiiiii', ...$params);
+        $this->unemploymentInsertStmt->bind_param('issiiiiidddiiiiiiiiiiiiiiiiiii', ...$params);
         $this->unemploymentInsertStmt->execute();
     }
 
