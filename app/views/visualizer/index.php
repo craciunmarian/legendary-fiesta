@@ -203,7 +203,7 @@
         </div>
 
         <!-- doesn't work on IE, need to do some js for this -->
-        <input class="export-btn" type="submit" form="main-form" value="Export">
+        <input class="export-btn" type="submit" form="main-form" value="Generate">
 
     </main>
     <script src="/scripts/about/hamburger.js"></script>

@@ -1,11 +1,33 @@
 body {
     display: flex;
     justify-content: center;
+
+    background-color: #E7EFFD;
 }
 
-.chart_thing {
+.chart-container {
     margin: 0;
     margin-top: 10%;
+
     width: 50%;
     height: 25%;
+}
+
+.back-btn {
+    position: relative;
+
+    background-color: #928DD5;
+    padding: 0.8em 0.8em;
+    border-radius: 0.4em;
+    color: white;
+    font-size: 20px;
+    border: 3px solid #928DD5;
+    font-weight: bold;
+
+    width: 2em;
+    height: 1em;
+}
+
+a{
+    text-decoration: none;
 }
