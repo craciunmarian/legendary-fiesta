@@ -23,6 +23,7 @@ paths:
           schema:
             type: string
             format: date
+          example: "2020-10-01"
         - name: counties
           in: query
           required: true
@@ -30,6 +31,7 @@ paths:
             type: array
             items: 
               type: string
+          example: [iasi, bacau, botosani]
         - name: categories
           in: query
           required: false
@@ -53,7 +55,7 @@ paths:
           description: Bad request. Probably due to illegal or missing request parameters
           content: 
             text/plain:
-              example: "Various error messages"
+              example: "At least one county must be specified!"
         '500':
           description: Internal server error. Probably due to connection issues with the Database or other unexpected errors.
           content:
@@ -61,14 +63,19 @@ paths:
               example: "DB error"
               
   /refreshdb:
-    get:
+    post:
       summary: Refreshes the Database with the most recent data available
       description: The data is taken directly from the official <a href="https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc">Romanian government website</a>
       responses:
         '200':
           description: ok
+          content:
+            text/plain:
+              example: DB refreshed successfully
         '500':
           description: Internal server error. Possibly because of connectivity issues with the database or because of issues with the government website.
+          
+          
 components:
   schemas:
     QueryResponse:
@@ -83,6 +90,70 @@ components:
         nr_total:
           type: integer
           example: 3875
+        nr_femei:
+          type: integer
+        nr_barbati:
+          type: integer
+        rata_total:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 100
+          example: 3.1
+        rata_femei:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 100
+          example: 2.5
+        rata_barbati:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 100
+          example: 0.6
+        nr_indemnizati:
+          type: integer
+        nr_neindemnizati:
+          type: integer
+        nr_urban_total:
+          type: integer
+        nr_femei_urban:
+          type: integer
+        nr_barbati_urban:
+          type: integer
+        nr_rural_total:
+          type: integer
+        nr_femei_rural:
+          type: integer
+        nr_barbati_rural:
+          type: integer
+        nr_fara_studii:
+          type: integer
+        nr_primar:
+          type: integer
+        nr_gimnazial:
+          type: integer
+        nr_liceal:
+          type: integer
+        nr_postliceal:
+          type: integer
+        nr_profesional:
+          type: integer
+        nr_universitar:
+          type: integer
+        nr_sub_25:
+          type: integer
+        nr_25_29:
+          type: integer
+        nr_30_39:
+          type: integer
+        nr_40_49:
+          type: integer
+        nr_50_55:
+          type: integer
+        nr_peste_55:
+          type: integer
       required:
         - luna
         - judet

@@ -16,6 +16,8 @@ class Utils
         else if (!in_array("total", $data["categories"]))
             array_push($data["categories"], "total");
 
+        foreach ($data["counties"] as $county)
+            $county = self::format_city_names($county);
 
         $data["columns"] = [];
         foreach ($data["categories"] as $category) {
@@ -73,5 +75,21 @@ class Utils
             $name = "caras-severin";
 
         return $name;
+    }
+
+    // found this on https://stackoverflow.com/questions/4356289/php-random-string-generator/31107425#31107425
+    static function random_str(
+        int $length = 64,
+        string $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    ): string {
+        if ($length < 1) {
+            throw new \RangeException("Length must be a positive integer");
+        }
+        $pieces = [];
+        $max = mb_strlen($keyspace, '8bit') - 1;
+        for ($i = 0; $i < $length; ++$i) {
+            $pieces[] = $keyspace[random_int(0, $max)];
+        }
+        return implode('', $pieces);
     }
 }
