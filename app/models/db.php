@@ -12,7 +12,7 @@ class Db
     private const username = "tw";
     private const password = "tw";
     private const dbname = "unwe";
-    private const createStatement = "CREATE OR REPLACE TABLE unemployment_data (
+    private const unemploymentCreateStatement = "CREATE OR REPLACE TABLE unemployment_data (
         id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         luna DATE,
         judet VARCHAR(25),
@@ -44,10 +44,19 @@ class Db
         nr_50_55 INT(10),
         nr_peste_55 INT(10)
         )";
-    private const insertStatement = "INSERT INTO unemployment_data 
+    private const unemploymentInsertStatement = "INSERT INTO unemployment_data 
         VALUES (?,STR_TO_DATE(?, '%Y-%m-%d'),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  // insert statement sql
+
+    private const tokensCreateStatement = "CREATE OR REPLACE TABLE tokens (
+        id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        token CHAR(32)
+        )";
+
+    private const tokensInsertStatement = "INSERT INTO tokens(token) VALUES(?)";
+
     private $conn;  // database connection
-    private $insertStmt;  // prepared insert statement
+    private $unemploymentInsertStmt;  // prepared insert statement
+    private $tokenInsertStmt;
 
     public function __construct()
     {
@@ -56,12 +65,15 @@ class Db
         if ($this->conn->connect_error)
             throw new Exception("Can't connect to DB!");
 
-        $this->insertStmt = $this->conn->prepare(self::insertStatement);
+        $this->unemploymentInsertStmt = $this->conn->prepare(self::unemploymentInsertStatement);
+        $this->tokenInsertStmt = $this->conn->prepare(self::tokensInsertStatement);
     }
 
     public function __destruct()
     {
         $this->conn->close();
+        $this->unemploymentInsertStmt->close();
+        $this->tokenInsertStmt->close();
     }
 
     public function getConnection()
@@ -71,7 +83,7 @@ class Db
 
     public function createDb()
     {
-        if ($this->conn->query(self::createStatement) === FALSE)
+        if ($this->conn->query(self::unemploymentCreateStatement) === FALSE)
             throw new Exception("Error creating table: " . $this->conn->error);
     }
 
@@ -83,8 +95,8 @@ class Db
         }
 
         array_unshift($params, 0);
-        $this->insertStmt->bind_param('issiidddiiiiiiiiiiiiiiiiiiiiii', ...$params);
-        $this->insertStmt->execute();
+        $this->unemploymentInsertStmt->bind_param('issiidddiiiiiiiiiiiiiiiiiiiiii', ...$params);
+        $this->unemploymentInsertStmt->execute();
     }
 
     public function getMaxDate()
@@ -114,5 +126,29 @@ class Db
         $statement->close();
 
         return $ret;
+    }
+
+    public function createTokensTable()
+    {
+        if ($this->conn->query(self::tokensCreateStatement) === FALSE)
+            throw new Exception("Error creating table: " . $this->conn->error);
+    }
+
+    public function insertToken($token)
+    {
+        $this->tokenInsertStmt->bind_param('s', $token);
+        $this->tokenInsertStmt->execute();
+    }
+
+    public function checkToken($token)
+    {
+        $result = $this->conn->query("SELECT token FROM tokens");
+
+        foreach ($result->fetch_all() as $row) {
+            if (strcmp($row[0], $token) == 0)
+                return true;
+        }
+
+        return false;
     }
 }

@@ -4,11 +4,33 @@ require_once('../app/models/utils.php');
 
 class Api extends Controller
 {
+    public function index()
+    {
+        http_response_code(404);
+        header("Content-type: text/plain");
+        echo "invalid api call";
+    }
+
     public function refreshdb()
     {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->index();
+            return;
+        }
+
         try {
-            // re-create table
             $db = $this->model('Db');
+
+            $headers = getallheaders();
+
+            if (!isset($headers["Authorization"]) || (isset($headers["Authorization"]) && !$db->checkToken($headers["Authorization"]))) {
+                http_response_code(401);
+                header("Content-type: text/plain");
+                echo "You are not allowed to do that! Get a token from /signup first";
+                return;
+            }
+
+            // re-create table
             $db->createDb();
 
             // import data from website
@@ -29,6 +51,11 @@ class Api extends Controller
 
     public function query()
     {
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            $this->index();
+            return;
+        }
+
         try {
             $db = $this->model('Db');
 
@@ -65,6 +92,67 @@ class Api extends Controller
             http_response_code(200);
             header("Content-type: application/json");
             echo json_encode($result);
+        } catch (Exception $ex) {
+            http_response_code(500);
+            header("Content-type: text/plain");
+            error_log($ex->getMessage());
+            echo "DB error";
+        }
+    }
+
+    public function resetTokens()
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->index();
+            return;
+        }
+
+        $headers = getallheaders();
+
+        if (!isset($headers["Authorization"]) || (isset($headers["Authorization"]) && $headers["Authorization"] !== "super-secret-token-woo")) {
+            http_response_code(401);
+            header("Content-type: text/plain");
+            echo "You are not allowed to do that!";
+            return;
+        }
+
+        try {
+            $db = $this->model('Db');
+
+            $db->createTokensTable();
+
+            // success
+            http_response_code(200);
+            header("Content-type: text/plain");
+            echo "Reset successful";
+        } catch (Exception $ex) {
+            http_response_code(500);
+            header("Content-type: text/plain");
+            error_log($ex->getMessage());
+            echo "DB error";
+        }
+    }
+
+    public function signup()
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->index();
+            return;
+        }
+
+        http_response_code(200);
+        header("Content-type: text/plain");
+        $token = Utils::random_str(32);
+
+        try {
+            $db = $this->model('Db');
+
+            $db->insertToken($token);
+
+            // success
+            http_response_code(200);
+            header("Content-type: text/plain");
+            echo $token;
         } catch (Exception $ex) {
             http_response_code(500);
             header("Content-type: text/plain");
