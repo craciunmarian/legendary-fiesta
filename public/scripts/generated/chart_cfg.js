@@ -26,10 +26,16 @@ if (params.has("county1")) {
 if (params.has("county2")) {
     query = query + '&counties[]=' + params.get("county2").toLowerCase();
     county2 = params.get("county2");
+    if (county2 == county1){
+        county2 = null;
+    }
 }
 if (params.has("county3")) {
     query = query + '&counties[]=' + params.get("county3").toLowerCase();
     county3 = params.get("county3");
+    if (county3 == county1){
+        county3 = null;
+    }
 }
 if (params.has("women") || params.has("men")) {
     query = query + '&categories[]=sex';
@@ -49,8 +55,6 @@ if (params.has("urban-men") || params.has("rural-men") || params.has("urban-wome
 if (params.has("women-rate") || params.has("men-rate")) {
     query = query + '&categories[]=rate';
 }
-
-console.log(query);
 
 var i = 0;
 
@@ -124,7 +128,6 @@ fetch(query)
     });
 
 function getPieChart(data) {
-    console.log(data);
 
     var repNr = 0;
 
@@ -134,13 +137,13 @@ function getPieChart(data) {
         repNr++;
     }
 
-    if (county2) {
+    if (county2 && county2 != county1) {
         //addLabel(county2);
         var dataset2 = data[1];
         repNr++;
     }
 
-    if (county3) {
+    if (county3 && county3 != county2 && county3 != county1) {
         //addLabel(county3);
         var dataset3 = data[2];
         repNr++;
@@ -150,8 +153,6 @@ function getPieChart(data) {
     var j;
 
     for (var j = 0; j < repNr; j++) {
-
-        console.log("123");
 
         var auxArr = [];
 
@@ -197,12 +198,12 @@ function getPieChart(data) {
         }
         if (params.has("women-rate")) {
             if (j == 0) addLabel('Femei - Rata');
-            auxArr.push(data[i]?.rata_femei);
+            auxArr.push(parseInt(data[i]?.rata_femei, 10));
             ok = 1;
         }
         if (params.has("men-rate")) {
             if (j == 0) addLabel('Barbati - Rata');
-            auxArr.push(data[i]?.rata_barbati);
+            auxArr.push(parseInt(data[i]?.rata_barbati, 10));
             ok = 1;
         }
         if (ok == 0) {
@@ -211,7 +212,6 @@ function getPieChart(data) {
         }
         if (params.has("education[]")) {
             let aux = params.getAll("education[]");
-            console.log(aux);
             aux.forEach(element => {
                 switch (element) {
                     case 'none': if (j == 0) addLabel('Fără studii');
@@ -280,27 +280,22 @@ function getPieChart(data) {
         addPieData(auxColors, auxArr);
 
     }
-
-
-
-
     chart.update();
 }
 
 function getBarChart(data) {
-    console.log(data);
 
     if (county1) {
         addLabel(county1);
         var dataset1 = data[0];
     }
 
-    if (county2) {
+    if (county2 && county2 != county1) {
         addLabel(county2);
         var dataset2 = data[1];
     }
 
-    if (county3) {
+    if (county3 && county3 != county2 && county3 != county1) {
         addLabel(county3);
         var dataset3 = data[2];
     }
@@ -340,19 +335,18 @@ function getBarChart(data) {
         ok = 1;
     }
     if (params.has("women-rate")) {
-        addData('Femei - Rata', [dataset1?.rata_femei, dataset2?.rata_femei, dataset3?.rata_femei]);
+        addData('Femei - Rata', [parseInt(dataset1?.rata_femei, 10), parseInt(dataset2?.rata_femei, 10), parseInt(dataset3?.rata_femei, 10)]);
         ok = 1;
     }
     if (params.has("men-rate")) {
-        addData('Barbati - Rata', [dataset1?.rata_barbati, dataset2?.rata_barbati, dataset3?.rata_barbati]);
+        addData('Barbati - Rata', [parseInt(dataset1?.rata_barbati, 10), parseInt(dataset2?.rata_barbati, 10), parseInt(dataset3?.rata_barbati, 10)]);
         ok = 1;
     }
     if (ok == 0) {
-        addData('Total', [dataset1?.nr_total, dataset2?.nr_total, dataset3?.nr_fara_total]);
+        addData('Total', [dataset1?.nr_total, dataset2?.nr_total, dataset3?.nr_total]);
     }
     if (params.has("education[]")) {
         let aux = params.getAll("education[]");
-        console.log(aux);
         aux.forEach(element => {
             switch (element) {
                 case 'none': addData('Fără studii', [dataset1?.nr_fara_studii, dataset2?.nr_fara_studii, dataset3?.nr_fara_studii]);
@@ -377,7 +371,6 @@ function getBarChart(data) {
     }
     if (params.has("age[]")) {
         let aux = params.getAll("age[]");
-        console.log(aux);
         aux.forEach(element => {
             switch (element) {
                 case 'under 25': addData('<25', [dataset1?.nr_sub_25, dataset2?.nr_sub_25, dataset3?.nr_sub_25]);
@@ -421,8 +414,6 @@ function getLineChart(data) {
     var county1Array = [];
     var county2Array = [];
     var county3Array = [];
-
-    console.log(data);
 
     data.forEach(element => {
 
@@ -493,15 +484,14 @@ function getLineChart(data) {
             aux += element.nr_peste_55;
         }
         if (element.rata_femei) {
-            aux += element.rata_femei;
+            aux += parseInt(element.rata_femei, 10);
         }
         if (element.rata_barbati) {
-            aux += element.rata_barbati;
+            aux += parseInt(element.rata_barbati, 10);
         }
 
         element.nr_total += aux;
-
-        
+  
         if (index < labelNr) {
             index++;
         }
@@ -512,11 +502,9 @@ function getLineChart(data) {
         }
         if (index == 2) {
             county2Array.push(element.nr_total);
-            console.log('thing1');
         }
         if (index == 3) {
             county3Array.push(element.nr_total);
-            console.log('thing2');
         }
 
         if (index == labelNr) {
@@ -535,7 +523,6 @@ function getLineChart(data) {
         addData(county3, county3Array);
     }
 
-    console.log(data);
     chart.update();
 }
 
@@ -545,6 +532,10 @@ var canvas = document.getElementById('chart');
 var context = canvas.getContext('2d');
 
 document.getElementById('downloadPDF').addEventListener("click", exportToPDF);
+
+function exportToCSV() {
+    console.log("stuff");
+}
 
 function exportToPDF() {
     var canvas = document.querySelector('#chart');
@@ -558,10 +549,8 @@ function exportToPDF() {
     var doc = new jsPDF('landscape', 'px', [width, height]);
     doc.setFontSize(20);
     doc.addImage(canvasImg, 'PNG', 0, 0, width, height);
-    doc.save('canvas.pdf');
+    doc.save(chartType + '-chart.pdf');
 }
-
-// console.log(options);
 
 // chart.options.animation = false;
 // chart.options.responsive = false;
