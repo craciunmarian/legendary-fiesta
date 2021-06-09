@@ -86,7 +86,7 @@ function addData(label, dataAdd) {
         label: label,
         data: dataAdd,
         backgroundColor: colors[i],
-        borderColor: colors[10]
+        borderColor: colors[i]
     });
 
     chart.update();
