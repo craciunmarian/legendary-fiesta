@@ -21,12 +21,8 @@
         <!-- <button id="downloadSVG">Save as SVG</button> -->
     </div>
 
-    <!-- <div id="map"></div> -->
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js"></script>
-    <script src="/scripts/map/mapdata.js"></script>
-    <script src="/scripts/map/countrymap.js"></script>
     <script src="/scripts/generated/export.js"></script>
     <script src="/scripts/generated/canvas2svg.js"></script>
     <script src="/scripts/generated/chart_cfg.js"></script>
