@@ -511,7 +511,7 @@ function getLineChart(data) {
         if ((county2?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == element.judet) && index == 2) {
             county2Array.push(element.nr_total);
         }
-        if ((county3?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == element.judet) && index == 2) {
+        if ((county3?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == element.judet) && index == 3) {
             county3Array.push(element.nr_total);
         }
 
