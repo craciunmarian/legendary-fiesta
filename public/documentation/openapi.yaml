@@ -62,10 +62,26 @@ paths:
             text/plain:
               example: "DB error"
               
+  /signup:
+    post:
+      summary: returns a token that can be used to request a database refresh
+      responses:
+        '200':
+          description: returns the generated token
+          content:
+            text/plain:
+              example: FfLotqhVDEVZqh14i6Fa8XjfrsPIgs1f
+        '500':
+          description: Internal server error. Possibly because of connectivity issues with the database.
+          
+              
   /refreshdb:
     post:
       summary: Refreshes the Database with the most recent data available
       description: The data is taken directly from the official <a href="https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc">Romanian government website</a>
+      security:
+        - apiKey: 
+          - "write: refresh"
       responses:
         '200':
           description: ok
@@ -74,9 +90,33 @@ paths:
               example: DB refreshed successfully
         '500':
           description: Internal server error. Possibly because of connectivity issues with the database or because of issues with the government website.
-          
+  
+  /resetTokens:
+    post:
+      summary: Resets the token database. For internal use only.
+      security:
+      - superSecretPassword:
+        - "write: reset"
+      responses:
+        '200':
+          description: ok
+          content:
+            text/plain:
+              example: Reset successful
+        '500':
+          description: Internal server error. Possibly because of connectivity issues with the database.
           
 components:
+  securitySchemes:
+    apiKey:
+      name: Authorization
+      type: apiKey
+      in: header
+    superSecretPassword:
+      name: Authorization
+      type: apiKey
+      in: header
+
   schemas:
     QueryResponse:
       type: object

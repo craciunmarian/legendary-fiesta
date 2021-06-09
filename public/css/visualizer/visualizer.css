@@ -55,6 +55,9 @@ path:hover {
     fill: #505050;
 }
 
+.hidden {
+    display: none;
+}
 
 form {
     position:relative;
@@ -131,6 +134,11 @@ input:checked + label {
 }
 
 .visualizer-form__2-checkboxes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.visualizer-form__1-checkbox {
     display: flex;
     justify-content: space-around;
 }

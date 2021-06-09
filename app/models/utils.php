@@ -35,7 +35,7 @@ class Utils
                     array_push($data["columns"], "nr_indemnizati", "nr_neindemnizati");
                     break;
                 case "environment":
-                    array_push($data["columns"], "nr_urban_total", "nr_rural_total");
+                    array_push($data["columns"], "nr_urban_total", "nr_barbati_urban", "nr_femei_urban", "nr_rural_total", "nr_barbati_rural", "nr_femei_rural");
                     break;
                 case "education":
                     array_push($data["columns"], "nr_fara_studii", "nr_primar", "nr_gimnazial", "nr_liceal", "nr_postliceal", "nr_profesional", "nr_universitar");
@@ -77,7 +77,7 @@ class Utils
         return $name;
     }
 
-    // found this on https://stackoverflow.com/questions/4356289/php-random-string-generator/31107425#31107425
+    // found this on https://stackoverflow.com/questions/4356289/php-random-string-generator/31107425#31107425 i take no credit for it
     static function random_str(
         int $length = 64,
         string $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
