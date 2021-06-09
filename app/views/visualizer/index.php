@@ -78,26 +78,26 @@
             </section>
 
             <section class="visualizer-form__2-checkboxes">
-                <input name="women" id="femei" type="checkbox">
+                <input name="women" id="femei" type="checkbox" data-exclusive="gender">
                 <label for="femei"> Femei </label>
 
-                <input name="men" id="barbati" type="checkbox">
+                <input name="men" id="barbati" type="checkbox" data-exclusive="gender" data-exclusive="gender">
                 <label for="barbati"> Bărbați </label>
             </section>
 
             <section class="visualizer-form__2-checkboxes">
-                <input name="compensated" id="indemnizati" type="checkbox">
+                <input name="compensated" id="indemnizati" type="checkbox" data-exclusive="compensation">
                 <label for="indemnizati">Indemnizați</label>
 
-                <input name="unpaid" id="neindemnizati" type="checkbox">
+                <input name="unpaid" id="neindemnizati" type="checkbox" data-exclusive="compensation">
                 <label for="neindemnizati"> Neindemnizați </label>
             </section>
 
             <section class="visualizer-form__2-checkboxes">
-                <input name="women-rate" id="percent-femei" type="checkbox">
+                <input name="women-rate" id="percent-femei" type="checkbox" data-exclusive="rate">
                 <label for="percent-femei">% Femei</label>
 
-                <input name="men-rate" id="percent-barbati" type="checkbox">
+                <input name="men-rate" id="percent-barbati" type="checkbox" data-exclusive="rate">
                 <label for="percent-barbati"> % Bărbați </label>
             </section>
 
@@ -281,7 +281,6 @@
             </section>
         </form>
 
-        <!-- TODO rework this -->
         <form id="environment-form" class="visualizer-form hidden" method="get" action="/visualizer/generated">
 
             <section class="visualizer-form__judete">

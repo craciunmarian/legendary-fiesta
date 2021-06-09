@@ -50,3 +50,15 @@ for (let i = 0; i < categoryBtns.length; i++) {
         document.getElementById("export-btn").setAttribute("form", formId);
     });
 }
+
+// making sure buttons from different categories uncheck
+let exclusiveBtns = document.querySelectorAll('[data-exclusive]');
+
+exclusiveBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        exclusiveBtns.forEach((otherBtn) => {
+            if (otherBtn.getAttribute('data-exclusive') != e.target.getAttribute('data-exclusive'))
+                otherBtn.checked = false;
+        })
+    })
+})
