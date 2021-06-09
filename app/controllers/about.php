@@ -11,4 +11,9 @@ class About extends Controller
     {
         $this->view('about/report');
     }
+
+    public function guide()
+    {
+        $this->view('about/guide');
+    }
 }

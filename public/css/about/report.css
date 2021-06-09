@@ -25,3 +25,19 @@ h3
 {
     color: #6b6e77;
 }
+
+img
+{
+    width: 40vw;
+    height: 40vw;
+}
+
+figcaption 
+{
+    text-align: center;
+}
+
+#architecture {
+    width: 60vw;
+    height: 40vw;
+}

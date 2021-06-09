@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: UNWE - Unemployment Web Visualizer
+  title: UNWE - Unemployment Web Visualizer API
   description: API to get official data about unemployment in Romania.
   version: 1.0.0
 servers:

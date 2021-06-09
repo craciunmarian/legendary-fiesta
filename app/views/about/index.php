@@ -48,7 +48,8 @@
     </div>
     <footer>
         <a href="/about/report" class="footer__text">Documentatie</a>
-        <p class="footer__text">filler text</p>
+        <a href="/documentation/openapi.yaml" class="footer__text" download>OpenAPI 3 spec</a>
+
     </footer>
     <script src="/scripts/about/hamburger.js"></script>
 </body>
