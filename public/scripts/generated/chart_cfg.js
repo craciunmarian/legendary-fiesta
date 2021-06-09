@@ -93,6 +93,15 @@ function addData(label, dataAdd) {
     i++;
 }
 
+function addPieData(color, dataAdd) {
+    chart.data.datasets.push({
+        backgroundColor: color,
+        data: dataAdd
+    })
+
+    chart.update();
+}
+
 function addLabel(label) {
     chart.data.labels.push(label);
     chart.update();
@@ -107,12 +116,176 @@ fetch(query)
             getBarChart(json);
         }
         else if (chartType == 'pie') {
-            getBarChart(json);
+            getPieChart(json);
         }
         else if (chartType == 'line') {
             getLineChart(json);
         }
     });
+
+function getPieChart(data) {
+    console.log(data);
+
+    var repNr = 0;
+
+    if (county1) {
+        //addLabel(county1);
+        var dataset1 = data[0];
+        repNr++;
+    }
+
+    if (county2) {
+        //addLabel(county2);
+        var dataset2 = data[1];
+        repNr++;
+    }
+
+    if (county3) {
+        //addLabel(county3);
+        var dataset3 = data[2];
+        repNr++;
+    }
+
+    var ok = 0;
+    var j;
+
+    for (var j = 0; j < repNr; j++) {
+
+        console.log("123");
+
+        var auxArr = [];
+
+        if (params.has("women")) {
+            if (j == 0) addLabel('Femei');
+            auxArr.push(data[i]?.nr_femei);
+            ok = 1;
+        }
+        if (params.has("men")) {
+            if (j == 0) addLabel('Barbati');
+            auxArr.push(data[i]?.nr_barbati);
+            ok = 1;
+        }
+        if (params.has("compensated")) {
+            if (j == 0) addLabel('Indemnizați');
+            auxArr.push(data[i]?.nr_indemnizati);
+            ok = 1;
+        }
+        if (params.has("unpaid")) {
+            if (j == 0) addLabel('Neindemnizați');
+            auxArr.push(data[i]?.nr_neindemnizati);
+            ok = 1;
+        }
+        if (params.has("urban-men")) {
+            if (j == 0) addLabel('Barbati - Urban');
+            auxArr.push(data[i]?.nr_barbati_urban);
+            ok = 1;
+        }
+        if (params.has("rural-men")) {
+            if (j == 0) addLabel('Barbati - Rural');
+            auxArr.push(data[i]?.nr_barbati_rural);
+            ok = 1;
+        }
+        if (params.has("urban-women")) {
+            if (j == 0) addLabel('Femei - Urban');
+            auxArr.push(data[i]?.nr_femei_urban);
+            ok = 1;
+        }
+        if (params.has("rural-women")) {
+            if (j == 0) addLabel('Femei - Rural');
+            auxArr.push(data[i]?.nr_femei_rural);
+            ok = 1;
+        }
+        if (params.has("women-rate")) {
+            if (j == 0) addLabel('Femei - Rata');
+            auxArr.push(data[i]?.rata_femei);
+            ok = 1;
+        }
+        if (params.has("men-rate")) {
+            if (j == 0) addLabel('Barbati - Rata');
+            auxArr.push(data[i]?.rata_barbati);
+            ok = 1;
+        }
+        if (ok == 0) {
+            if (j == 0) addLabel('Total');
+            auxArr.push(data[i]?.nr_total);
+        }
+        if (params.has("education[]")) {
+            let aux = params.getAll("education[]");
+            console.log(aux);
+            aux.forEach(element => {
+                switch (element) {
+                    case 'none': if (j == 0) addLabel('Fără studii');
+                        auxArr.push(data[i]?.nr_fara_studii);
+                        break;
+                    case 'primary': if (j == 0) addLabel('Inv. primar');
+                        auxArr.push(data[i]?.nr_primar);
+                        break;
+                    case 'middle': if (j == 0) addLabel('Inv. gimnazial');
+                        auxArr.push(data[i]?.nr_gimnazial);
+                        break;
+                    case 'high': if (j == 0) addLabel('Inv. liceal');
+                        auxArr.push(data[i]?.nr_liceal);
+                        break;
+                    case 'post-secondary': if (j == 0) addLabel('Inv. postliceal');
+                        auxArr.push(data[i]?.nr_postliceal);
+                        break;
+                    case 'professional': if (j == 0) addLabel('Inv. profesional');
+                        auxArr.push(data[i]?.nr_profesional);
+                        break;
+                    case 'uni': if (j == 0) addLabel('Inv. universitar');
+                        auxArr.push(data[i]?.nr_universitar);
+                        break;
+                    case 'all': if (j == 0) addLabel('Total');
+                        auxArr.push(data[i]?.nr_total);
+                        break;
+                    default: console.log("idk");
+                }
+            });
+        }
+        if (params.has("age[]")) {
+            let aux = params.getAll("age[]");
+            aux.forEach(element => {
+                switch (element) {
+                    case 'under 25': if (j == 0) addLabel('<25');
+                        auxArr.push(data[i]?.nr_sub_25);
+                        break;
+                    case '25-29': if (j == 0) addLabel('25-29');
+                        auxArr.push(data[i]?.nr_25_29);
+                        break;
+                    case '30-39': if (j == 0) addLabel('30-39');
+                        auxArr.push(data[i]?.nr_30_39);
+                        break;
+                    case '40-49': if (j == 0) addLabel('40-49');
+                        auxArr.push(data[i]?.nr_40_49);
+                        break;
+                    case '50-55': if (j == 0) addLabel('50-55');
+                        auxArr.push(data[i]?.nr_50_55);
+                        break;
+                    case 'over 55': if (j == 0) addLabel('55<');
+                        auxArr.push(data[i]?.nr_peste_55);
+                        break;
+                    case 'all': if (j == 0) addLabel('Total');
+                        auxArr.push(data[i]?.nr_total);
+                        break;
+                    default: console.log("idk");
+                }
+            });
+        }
+
+        var auxColors = [];
+        for (i = 0; i < auxArr.length; i++) {
+            auxColors.push(colors[i]);
+        }
+
+        addPieData(auxColors, auxArr);
+
+    }
+
+
+
+
+    chart.update();
+}
 
 function getBarChart(data) {
     console.log(data);
@@ -196,7 +369,7 @@ function getBarChart(data) {
                     break;
                 case 'uni': addData('Inv. universitar', [dataset1?.nr_universitar, dataset2?.nr_universitar, dataset3?.nr_universitar]);
                     break;
-                case 'all': addData('Total', [dataset1?.nr_total, dataset2?.nr_total, dataset3?.nr_fara_total]);
+                case 'all': addData('Total', [dataset1?.nr_total, dataset2?.nr_total, dataset3?.nr_total]);
                     break;
                 default: console.log("idk");
             }
@@ -253,7 +426,7 @@ function getLineChart(data) {
 
         element.nr_total = 0;
         var aux = 0;
-        
+
         if (element.nr_femei) {
             aux += element.nr_femei;
         }
@@ -330,15 +503,15 @@ function getLineChart(data) {
             index++;
         }
 
-        if((county1?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == element.judet) && index == 1){
+        if ((county1?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == element.judet) && index == 1) {
             addLabel(element.luna);
             county1Array.push(element.nr_total);
             console.log(element.nr_total);
         }
-        if((county2?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == element.judet) && index == 2){
+        if ((county2?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == element.judet) && index == 2) {
             county2Array.push(element.nr_total);
         }
-        if((county3?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == element.judet) && index == 2){
+        if ((county3?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == element.judet) && index == 2) {
             county3Array.push(element.nr_total);
         }
 
@@ -348,13 +521,13 @@ function getLineChart(data) {
 
     });
 
-    if(county1) {
+    if (county1) {
         addData(county1, county1Array);
     }
-    if(county2) {
+    if (county2) {
         addData(county2, county2Array);
     }
-    if(county3) {
+    if (county3) {
         addData(county3, county3Array);
     }
 
@@ -362,6 +535,7 @@ function getLineChart(data) {
     chart.update();
 }
 
+console.log(options);
 
 var canvas = document.getElementById('chart');
 var context = canvas.getContext('2d');

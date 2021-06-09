@@ -171,7 +171,7 @@
 
                 <label>
                     <input name="manner" type="radio" value="pie">
-                    <span> Test </span>
+                    <span> Pie Chart </span>
                 </label>
 
                 <label>
@@ -251,7 +251,7 @@
 
                 <label>
                     <input name="manner" type="radio" value="pie">
-                    <span> Test </span>
+                    <span> Pie Chart </span>
                 </label>
 
                 <label>
@@ -327,7 +327,7 @@
 
                 <label>
                     <input name="manner" type="radio" value="pie">
-                    <span> Test </span>
+                    <span> Pie Chart </span>
                 </label>
 
                 <label>
@@ -390,12 +390,12 @@
             <section class="visualizer-form__manner">
                 <label>
                     <input name="manner" type="radio" checked value="bar">
-                    <span> Bar chart </span>
+                    <span> Bar Chart </span>
                 </label>
 
                 <label>
                     <input name="manner" type="radio" value="pie">
-                    <span> Test </span>
+                    <span> Pie Chart </span>
                 </label>
 
                 <label>
