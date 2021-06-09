@@ -34,6 +34,11 @@
         Șomajul în România
     </h1>
 
+    <div id="counter-div">
+        <img id="someri-icon" src="/assets/home/people_black_24dp.svg" alt="unemployed person icon">
+        <h2 class="someri-counter text-center" id="someri-counter"></h2>
+    </div>
+
     <div class="line">
     </div>
 
@@ -62,6 +67,7 @@
         </div>
     </section>
     <script src="/scripts/about/hamburger.js"></script>
+    <script src="/scripts/home/home.js"></script>
 
 </body>
 

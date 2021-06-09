@@ -50,11 +50,6 @@ svg {
     right: 0%;
 }
 
-#ROU127 {
-    fill: blue;
-}
-
-
 path:hover {
     cursor:pointer;
     fill: #505050;

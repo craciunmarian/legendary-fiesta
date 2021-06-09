@@ -52,6 +52,25 @@ top: 0%;
     font-size: 4vw;
 }
 
+#counter-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#someri-icon {
+    margin-right: 2em;
+    width: 4vw;
+    height: 4vw;
+}
+
+.someri-counter {
+    font-family: 'Open Sans', sans-serif;
+    color: #3F3D56;
+    font-weight: 600;
+    font-size: 3vw;
+}
+
 .text-center {
     text-align: center!important;
 }
@@ -65,7 +84,6 @@ top: 0%;
     position: relative;
     
     margin: auto;
-    margin-top: 10%
     }
 
 

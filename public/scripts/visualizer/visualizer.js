@@ -8,11 +8,13 @@ let today = new Date();
 let mm = today.getMonth() + 1; //January is 0!
 let yyyy = today.getFullYear();
 
-if (mm == 1) {
-    mm = 12;
-    yyyy--;
+for (let i = 0; i < 3; i++) {
+    if (mm == 1) {
+        mm = 12;
+        yyyy--;
+    }
+    else mm--;
 }
-else mm--;
 
 if (mm < 10) {
     mm = '0' + mm
@@ -62,3 +64,17 @@ exclusiveBtns.forEach((btn) => {
         })
     })
 })
+
+let titles = document.getElementsByTagName("title");
+for (let i = 0; i < titles.length; i++) {
+    if (titles[i].parentElement.nodeName == "path") {
+        fetch('/api/query?' + 'from-json=false' + '&start-date=' + today + '-01' + '&counties[]=' + titles[i].id)
+            .then(response => {
+                return response.json();
+            })
+            .then(jsonResponse => {
+                titles[i].innerHTML += ": " + jsonResponse[0].nr_total + " șomeri în ultima lună";
+                return jsonResponse[0].nr_total;
+            });
+    }
+}
