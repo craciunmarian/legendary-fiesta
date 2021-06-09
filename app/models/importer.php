@@ -189,7 +189,7 @@ class Importer
         if (count($this->judete) == 0) {
             $lista_judete = fopen(self::judete_filepath, 'r');
             while ($line = fgets($lista_judete)) {
-                $line = str_replace("\n", "", $line);
+                $line = str_replace(PHP_EOL, "", $line);
                 array_push($this->judete, $line);
             }
             fclose($lista_judete);
