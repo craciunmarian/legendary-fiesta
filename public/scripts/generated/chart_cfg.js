@@ -1,120 +1,173 @@
-    const colors = [
-        '#660033',
-        '#009933',
-        '#663300',
-        '#990000',
-        '#cc00cc',
-        '#666633',
-    ]
-    var chartType;
-    buildURL();
+const colors = [
+    '#de2316',
+    '#0fb3db',
+    '#0fdb38',
+    '#a30557',
+    '#f58d42',
+    '#141413',
+    '#ebeb07',
+    '#19158c',
+    '#d400f5',
+    '#FFFFFF',
+    '#FFFFFF',
+];
 
-    function buildURL() {
-        var URL = '/api/query?' + '&from-json=false' + '&start-date=2012-05-01';
-        let params = new URLSearchParams(location.search);
+var query = '/api/query?' + '&from-json=false' + '&start-date=2012-05-01';
+var ctx = document.getElementById('chart');
+let params = new URLSearchParams(location.search);
+var chartType = params.get("manner");
 
-        if(params.get("county1") != 'ALEGE JUDEȚUL'){
-            URL = URL + '&counties[]=' + params.get("county1").toLowerCase();
-        }
-        if(params.get("county2") != 'ALEGE JUDEȚUL'){
-            URL = URL + '&counties[]=' + params.get("county2").toLowerCase();
-        }
-        if(params.get("county3") != 'ALEGE JUDEȚUL'){
-            URL = URL + '&counties[]=' + params.get("county3").toLowerCase();
-        }
-        if(params.has("women") || params.has("men")){
-            URL = URL + '&categories[]=sex';
-        }
-        if(params.has("age[]")){
-            URL = URL + '&categories[]=age';
-        }
-        if(params.has("education[]")){
-            URL = URL + '&categories[]=education';
-        }
-        if(params.has("compensated") || params.has("unpaid")){
-            URL = URL + '&categories[]=compensation';
-        }
-        if(params.has("urban") || params.has("rural")){
-            URL = URL + '&categories[]=enviornment';
-        }
-        if(params.has("rate")){
-            URL = URL + '&categories[]=rate';
-        }
-        chartType = params.get("manner");
+var county1, county2, county3;
 
-        console.log(URL);
+if (params.get("county1") != 'ALEGE JUDEŢUL') {
+    query = query + '&counties[]=' + params.get("county1").toLowerCase();
+    county1 = params.get("county1");
+}
+if (params.get("county2") != 'ALEGE JUDEŢUL') {
+    query = query + '&counties[]=' + params.get("county2").toLowerCase();
+    county2 = params.get("county2");
+}
+if (params.get("county3") != 'ALEGE JUDEŢUL') {
+    query = query + '&counties[]=' + params.get("county3").toLowerCase();
+    county3 = params.get("county3");
+}
+if (params.has("women") || params.has("men")) {
+    query = query + '&categories[]=sex';
+}
+if (params.has("age[]")) {
+    query = query + '&categories[]=age';
+}
+if (params.has("education[]")) {
+    query = query + '&categories[]=education';
+}
+if (params.has("compensated") || params.has("unpaid")) {
+    query = query + '&categories[]=compensation';
+}
+if (params.has("urban") || params.has("rural")) {
+    query = query + '&categories[]=environment';
+}
+if (params.has("rate")) {
+    query = query + '&categories[]=rate';
+}
 
-        fetch(URL)
-        .then(response => {
-            return response.json();
-        })
-        .then(jsonResponse => {
-            console.log(jsonResponse);
+var i = 0;
+
+var chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+    },
+    options: {
+        responsive: true,
+        animation: true,
+    }
+});
+
+function addData(label, dataAdd) {
+    chart.data.datasets.push({
+        label: label,
+        data: dataAdd,
+        backgroundColor: colors[i],
+        borderColor: colors[i]
     });
+
+    chart.update();
+    i++;
+}
+
+function addLabel(label) {
+    chart.data.labels.push(label);
+    chart.update();
+}
+
+fetch(query)
+    .then(function (u) {
+        return u.json();
+    })
+    .then(function (json) {
+        getChart(json);
+    });
+
+function getChart(data) {
+    console.log(data);
+
+    if (county1) {
+        addLabel(county1);
+        var dataset1 = data[0];
     }
 
-    var ctx = document.getElementById('chart');
+    if (county2) {
+        addLabel(county2);
+        var dataset2 = data[1];
+    }
 
-    const labels = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-    ];
+    if (county3) {
+        addLabel(county3);
+        var dataset3 = data[2];
+    }
 
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: 'test',
-            backgroundColor: '#660033',
-            borderColor: '#660033',
-            data: [200, 10, 5, 2, 20, 211, 555],
-        },
-        {
-            label: 'test',
-            backgroundColor: '#009933',
-            borderColor: '#009933',
-            data: [15, 213, 42, 21, 42, 44, 15],
-        }]
-    };
+    if (params.has("women")) {
+        addData('Femei', [dataset1?.nr_barbati, dataset2?.nr_femei, dataset3?.nr_femei]);
+    }
+    if (params.has("men")) {
+        addData('Barbati', [dataset1?.nr_barbati, dataset2?.nr_barbati, dataset3?.nr_barbati]);
+    }
+    if (params.has("compensated")) {
+        addData('Indemnizați', [dataset1?.nr_indemnizati, dataset2?.nr_indemnizati, dataset3?.nr_indemnizati]);
+    }
+    if (params.has("unpaid")) {
+        addData('Neindemnizați', [dataset1?.nr_neindemnizati, dataset2?.nr_neindemnizati, dataset3?.nr_neindemnizati]);
+    }
+    if (params.has("rural")) {
+        addData('Rural', [dataset1?.nr_rural_total, dataset2?.nr_rural_total, dataset3?.nr_rural_total]);
+    }
+    if (params.has("urban")) {
+        addData('Urban', [dataset1?.nr_urban_total, dataset2?.nr_urban_total, , dataset3?.nr_urban_total]);
+    }
+    if (params.has("education[]")) {
+        let aux = params.getAll("education[]");
+        console.log(aux);
+        aux.forEach(element => {
+            switch (element) {
+                case 'none': console.log("1");
+                    break;
+                case 'primary': console.log("2");
+                    break;
+                case 'middle': console.log("1");
+                    break;
+                case 'high': console.log("1");
+                    break;
+                case 'post-secondary': console.log("1");
+                    break;
+                case 'professional': console.log("1");
+                    break;
+                case 'uni': console.log("1");
+                    break;
+                case 'all': console.log("all");
+                    break;
+                default: console.log("idk");
+            }
+        });
+    }
 
-    const config = {
-        type: chartType,
-        data,
-        options: {
-            responsive: true,
-            animation: true,
-        }
-    };
+    chart.update();
+}
 
-    var chartVar = new Chart(ctx,
-        config
-    );
+console.log(chart.data);
 
-    var canvas = document.getElementById('chart');
-    var context = canvas.getContext('2d');
+var canvas = document.getElementById('chart');
+var context = canvas.getContext('2d');
 
-    // downloadSVG.addEventListener("click", function() {
+document.getElementById('downloadPDF').addEventListener("click", exportToPDF);
 
-    //     let svgContext = document.getElementById('chart');
-    //     createSvgLink('chart.svg', 'SVG', chart, config);
+function exportToPDF() {
+    var canvas = document.querySelector('#chart');
+    //creates image
+    var canvasImg = canvas.toDataURL("image/png");
 
-    // }, false);
-
-    
-    downloadPDF.addEventListener("click", function() {
-
-        var chartElem = document.getElementById('chart');
-        var width = chartElem.offsetWidth;
-        var height = chartElem.offsetHeight;
-        
-        var imgData = canvas.toDataURL("image/png", 1.0);
-        var pdf = new jsPDF('l', 'px', [width, height]);
-        
-        pdf.addImage(imgData, 'PNG', 0, 0, width, height);
-        pdf.save("download.pdf");
-        
-    }, false);
+    //creates PDF from img
+    var doc = new jsPDF('landscape');
+    doc.setFontSize(20);
+    doc.text(15, 15, "Cool Chart");
+    doc.addImage(canvasImg, 'PNG', 10, 10, 280, 150);
+    doc.save('canvas.pdf');
+}

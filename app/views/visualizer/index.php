@@ -163,7 +163,7 @@
                             <option value="high"> Învățământ liceal </option>
                             <option value="post-secondary"> Învățământ postliceal </option>
                             <option value="professional"> Învățământ profesional/arte și meserii </option>
-                            <option value=""> Învățământ universitar </option>
+                            <option value="uni"> Învățământ universitar </option>
                         </select>
                     </label>
                 </section>
@@ -190,13 +190,13 @@
                     </label>
 
                     <label>
-                        <input name="manner" type="radio" value="pie">
-                        <span> Pie chart </span>
+                        <input name="manner" type="radio" value="radar">
+                        <span> Radar chart </span>
                     </label>
 
                     <label>
-                        <input name="manner" type="radio" value="map">
-                        <span> Hartă </span>
+                        <input name="manner" type="radio" value="line">
+                        <span> Line Chart </span>
                     </label>
                 </section>
             </form>

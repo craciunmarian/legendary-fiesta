@@ -8,12 +8,12 @@
     <link href="/css/visualizer/generated.css" rel="stylesheet">
     <title>UnWe</title>
 </head>
+
 <body>
     <a class="back-btn" href="/visualizer">Back</a>
 
     <div class="chart-container">
-        <canvas id="chart"></canvas>
-        <p class="warning" id="warning" style="display: none;">Alege un judet coaie</p>
+        <canvas id="chart" class="chart"></canvas>
     </div>
 
     <div class="btns" id="btns">
@@ -21,11 +21,11 @@
         <!-- <button id="downloadSVG">Save as SVG</button> -->
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-    <script src="/scripts/generated/canvas2svg.js"></script>
-    <script src="/scripts/generated/export.js"></script>
-    <script src="/scripts/generated/chart_cfg.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js"></script>
+    <script src="/scripts/generated/export.js"></script>
+    <script src="/scripts/generated/canvas2svg.js"></script>
+    <script src="/scripts/generated/chart_cfg.js"></script>
 </body>
+
 </html>
