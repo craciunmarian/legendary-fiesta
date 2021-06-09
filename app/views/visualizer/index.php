@@ -52,7 +52,8 @@
         <form id="general-form" class="visualizer-form" method="get" action="/visualizer/generated">
 
             <section class="visualizer-form__judete">
-                <select name="county1">
+                <select name="county1" required>
+                    <option value="" disabled selected> ALEGE JUDEŢUL </option>
                     <?php
                     foreach ($data as $judet)
                         echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
@@ -60,16 +61,20 @@
                 </select>
 
                 <select name="county2">
+                    <option value="" disabled selected> ALEGE JUDEŢUL </option>
                     <?php
                     foreach ($data as $judet)
                         echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
-                    ?> </select>
+                    ?>
+                </select>
 
                 <select name="county3">
+                    <option value="" disabled selected> ALEGE JUDEŢUL </option>
                     <?php
                     foreach ($data as $judet)
                         echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
-                    ?> </select>
+                    ?>
+                </select>
             </section>
 
             <section class="visualizer-form__2-checkboxes">
@@ -98,7 +103,7 @@
 
             <label>
                 <span>Începând cu data de:</span>
-                <input class="start-date" name="start-date" type="month">
+                <input class="start-date" name="start-date" type="month" required>
             </label>
 
 
@@ -123,7 +128,8 @@
         <form id="education-form" class="visualizer-form hidden" method="get" action="/visualizer/generated">
 
             <section class="visualizer-form__judete">
-                <select name="county1">
+                <select name="county1" required>
+                    <option value="" disabled selected> ALEGE JUDEŢUL </option>
                     <?php
                     foreach ($data as $judet)
                         echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
@@ -131,16 +137,20 @@
                 </select>
 
                 <select name="county2">
+                    <option value="" disabled selected> ALEGE JUDEŢUL </option>
                     <?php
                     foreach ($data as $judet)
                         echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
-                    ?> </select>
+                    ?>
+                </select>
 
                 <select name="county3">
+                    <option value="" disabled selected> ALEGE JUDEŢUL </option>
                     <?php
                     foreach ($data as $judet)
                         echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
-                    ?> </select>
+                    ?>
+                </select>
             </section>
 
             <section class="visualizer-form__2-checkboxes">
@@ -173,7 +183,7 @@
 
             <label>
                 <span>Începând cu data de:</span>
-                <input class="start-date" name="start-date" type="month">
+                <input class="start-date" name="start-date" type="month" required>
             </label>
 
 
@@ -198,7 +208,8 @@
         <form id="age-form" class="visualizer-form hidden" method="get" action="/visualizer/generated">
 
             <section class="visualizer-form__judete">
-                <select name="county1">
+                <select name="county1" required>
+                    <option value="" disabled selected> ALEGE JUDEŢUL </option>
                     <?php
                     foreach ($data as $judet)
                         echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
@@ -206,16 +217,20 @@
                 </select>
 
                 <select name="county2">
+                    <option value="" disabled selected> ALEGE JUDEŢUL </option>
                     <?php
                     foreach ($data as $judet)
                         echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
-                    ?> </select>
+                    ?>
+                </select>
 
                 <select name="county3">
+                    <option value="" disabled selected> ALEGE JUDEŢUL </option>
                     <?php
                     foreach ($data as $judet)
                         echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
-                    ?> </select>
+                    ?>
+                </select>
             </section>
 
             <section class="visualizer-form__2-checkboxes">
@@ -244,7 +259,7 @@
 
             <label>
                 <span>Începând cu data de:</span>
-                <input class="start-date" name="start-date" type="month">
+                <input class="start-date" name="start-date" type="month" required>
             </label>
 
 
@@ -270,7 +285,8 @@
         <form id="environment-form" class="visualizer-form hidden" method="get" action="/visualizer/generated">
 
             <section class="visualizer-form__judete">
-                <select name="county1">
+                <select name="county1" required>
+                    <option value="" disabled selected> ALEGE JUDEŢUL </option>
                     <?php
                     foreach ($data as $judet)
                         echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
@@ -278,16 +294,20 @@
                 </select>
 
                 <select name="county2">
+                    <option value="" disabled selected> ALEGE JUDEŢUL </option>
                     <?php
                     foreach ($data as $judet)
                         echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
-                    ?> </select>
+                    ?>
+                </select>
 
                 <select name="county3">
+                    <option value="" disabled selected> ALEGE JUDEŢUL </option>
                     <?php
                     foreach ($data as $judet)
                         echo '<option value="' . $judet . '">' . $judet . '</option>', PHP_EOL;
-                    ?> </select>
+                    ?>
+                </select>
             </section>
 
             <section class="visualizer-form__2-checkboxes">
@@ -308,7 +328,7 @@
 
             <label>
                 <span>Începând cu data de:</span>
-                <input class="start-date" name="start-date" type="month">
+                <input class="start-date" name="start-date" type="month" required>
             </label>
 
 
