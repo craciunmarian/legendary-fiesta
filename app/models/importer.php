@@ -33,14 +33,15 @@ class Importer
             $this->format_date($append);
             $this->follow_CSV_links(self::gov . $append);
 
-            var_dump($this->addToDB);
+            //var_dump($this->addToDB);
             $this->addToDB = array();
-            die();
+            echo "<br><br><br>";
         }
     }
 
     public function follow_CSV_links($url)
     {
+        error_log("test");
         $page = file_get_contents($url);
         @$doc = new DOMDocument();
         @$doc->loadHTML($page);
@@ -53,6 +54,14 @@ class Importer
             $append = $node->getAttribute("href");
             $this->download_CSV(self::gov . $append);
         }
+
+        $this->judete = array_unique($this->judete);
+        for ($i = 0; $i < 43; $i++) {
+            array_splice($this->addToDB[$i], 1, 0, $this->judete[$i]);
+            $this->db->insertRow($this->addToDB[$i]);
+            var_dump($this->addToDB[$i]);
+            echo "<br><br>";
+        }
     }
 
     public function download_CSV($url)
@@ -64,7 +73,7 @@ class Importer
 
         $xpath = new DomXPath($doc);
 
-        $nodeList = $xpath->query("//div[@class='archiver link-cached']/a");
+        $nodeList = $xpath->query("//a[@class='resource-url-analytics']");
 
         $i = 0;
 
@@ -125,8 +134,11 @@ class Importer
     public function importData()
     {
         $this->follow_main_links(self::start);
-        $this->judete = array_unique($this->judete);
+
+
+        // echo "<br>";
         //var_dump($this->judete);
+
         // web crawling etc.
         // $this->db->insertRow(array(
         //     '2012-08-06', 'judet1', 1, 4, 5, 1.12, 1.13, 1.14,
