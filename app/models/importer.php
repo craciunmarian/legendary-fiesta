@@ -6,8 +6,10 @@ class Importer
 {
     private const judete_filepath = "./assets/common/judete.txt";
     private $db;
+    private $running = 1;
     private const start = 'https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc&res_format=.csv';
     private const gov = 'https://data.gov.ro';
+    private const pages = 'https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc&res_format=.csv&page=';
     private $judete = [];
     private $addToDB = array();
 
@@ -22,15 +24,17 @@ class Importer
             $this->addToDB[$i][1] = $counties[$i];
         }
     }
-    private function follow_pages($url)
+    private function follow_pages()
     {
-        $page = file_get_contents($url);
-        @$doc = new DOMDocument();
-        @$doc->loadHTML($page);
+        $i = 1;
+        while ($this->running) {
+            $headers = get_headers(self::pages . $i);
+            if ($headers && strpos($headers[0], '200'))
+                $this->follow_main_links(self::pages . $i);
+            else break;
 
-        $xpath = new DomXPath($doc);
-
-        $nodeList = $xpath->query("//ul[@class='pagination']/a");
+            $i++;
+        }
     }
 
     private function follow_main_links($url)
@@ -42,6 +46,10 @@ class Importer
         $xpath = new DomXPath($doc);
 
         $nodeList = $xpath->query("//h3[@class='dataset-heading']/a");
+        if (count($nodeList) == 0) {
+            $this->running = 0;
+            return;
+        }
 
         foreach ($nodeList as $node) {
             $append = $node->getAttribute("href");
@@ -198,15 +206,21 @@ class Importer
 
     public function importData()
     {
+        //echo phpversion();
+        //die();
         if (filesize(self::judete_filepath)) {
             $this->import_counties();
             $check = true;
         } else
             $check = false;
 
-        $this->follow_main_links(self::start);
-        if (!$check)
-            $this->export_counties();
+        $this->follow_pages();
+
+
+
+        // $this->follow_main_links(self::start);
+        // if (!$check)
+        //     $this->export_counties();
 
         //var_dump($this->judete);
 
