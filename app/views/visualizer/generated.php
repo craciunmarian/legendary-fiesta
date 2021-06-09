@@ -9,20 +9,23 @@
     <title>UnWe</title>
 </head>
 <body>
-    <a class="header__text" href="/visualizer">Back</a>
+    <a class="back-btn" href="/visualizer">Back</a>
 
-    <div class="chart_thing">
+    <div class="chart-container">
         <canvas id="chart"></canvas>
+        <p class="warning" id="warning" style="display: none;">Alege un judet coaie</p>
     </div>
 
-    <div class="chart-container" id='chart-container'>
-        <!-- <a href="#" id="export-thing" onclick="exportToPDF()">Export as PDF</a> -->
-        <button id="downloadPDF">download</button>
+    <div class="btns" id="btns">
+        <button id="downloadPDF">Save as PDF</button>
+        <!-- <button id="downloadSVG">Save as SVG</button> -->
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="/scripts/generated/canvas2svg.js"></script>
+    <script src="/scripts/generated/export.js"></script>
     <script src="/scripts/generated/chart_cfg.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js"></script>
 </body>
 </html>
