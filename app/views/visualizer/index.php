@@ -163,22 +163,18 @@
         </svg>
 
         <div class="form-categories">
-            <label>
-                <input type="radio" id="general" name="categories" class="category-btn">
-                <span>Generale</span>
-            </label>
-            <labeL>
-                <input type="radio" id="education" name="categories" class="category-btn">
-                <span>Nivel de educație</span>
-            </labeL>
-            <label>
-                <input type="radio" id="age" name="categories" class="category-btn">
-                <span>Vârstă</span>
-            </label>
-            <label>
-                <input type="radio" id="environment" name="categories" class="category-btn">
-                <span>Medii de rezidență</span>
-            </label>
+            <input type="radio" id="general" name="categories" class="category-btn">
+            <label for="general">Generale</label>
+
+            <input type="radio" id="education" name="categories" class="category-btn">
+            <label for="education">Nivel de educație</label>
+
+            <input type="radio" id="age" name="categories" class="category-btn">
+            <label for="age">Vârstă</label>
+
+            <input type="radio" id="environment" name="categories" class="category-btn">
+            <label for="environment">Medii de rezidență</label>
+
         </div>
 
         <form id="general-form" class="visualizer-form" method="get" action="/visualizer/generated">

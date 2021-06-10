@@ -51,19 +51,19 @@
             <img class="icons" src="/assets/home/pie-chart.svg" alt="decorative asset containing a pie chart">
             <br>
             Grafice
-            <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
+            <p class="small__text">Acest site generează reprezentări grafice ale statisticilor legate de șomaj, pentru a ușura înțelegerea acestora. </p>
         </div>
         <div class="icons__text">
             <img class="icons" src="/assets/home/analytics.svg" alt="decorative asset representing a statistic visualization">
             <br>
             Filtrare
-            <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
+            <p class="small__text">Poți aplica filtre pentru a vizualiza doar categoriile sau criteriile care te interesează.</p>
         </div>
         <div class="icons__text">
             <img class="icons" src="/assets/home/document.svg" alt="decorative asset in the shape of a document">
             <br>
             Export
-            <p class="small__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia architecto veniam rem fugit minima ratione error, debitis molestiae vitae facere, modi adipisci. Incidunt accusamus blanditiis id sequi voluptatum corrupti!</p>
+            <p class="small__text">În final, poți exporta informațiile filtrate în mai multe formate - PDF și CSV-, pentru a le vizualiza și offline.</p>
         </div>
     </section>
     <script src="/scripts/about/hamburger.js"></script>

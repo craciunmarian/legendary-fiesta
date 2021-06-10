@@ -59,8 +59,7 @@ top: 0%;
 }
 
 #someri-icon {
-    margin-right: 2em;
-    width: 4vw;
+    margin-right: 2vw;
     height: 4vw;
 }
 
@@ -225,6 +224,16 @@ top: 0%;
     {
         font-size:8vw;
         margin-top: 65%;
+    }
+
+    .someri-counter
+    {
+        font-size:7vw;
+    }
+
+    #someri-icon {
+        margin-right: 2vw;
+        height: 7vw;
     }
 
     .line
