@@ -19,7 +19,7 @@ class Api extends Controller
         }
 
         try {
-            $db = $this->model('Db');
+            $db = $this->model('db');
 
             $headers = getallheaders();
 
@@ -34,7 +34,7 @@ class Api extends Controller
             $db->createDb();
 
             // import data from website
-            $importer = $this->model('Importer', [$db]);
+            $importer = $this->model('importer', [$db]);
             $importer->importData();
 
             // success
@@ -57,7 +57,7 @@ class Api extends Controller
         }
 
         try {
-            $db = $this->model('Db');
+            $db = $this->model('db');
 
             if (isset($_GET["from-json"]) && $_GET["from-json"] == "true") {
                 $json = file_get_contents('php://input');
@@ -117,7 +117,7 @@ class Api extends Controller
         }
 
         try {
-            $db = $this->model('Db');
+            $db = $this->model('db');
 
             $db->createTokensTable();
 
@@ -145,7 +145,7 @@ class Api extends Controller
         $token = Utils::random_str(32);
 
         try {
-            $db = $this->model('Db');
+            $db = $this->model('db');
 
             $db->insertToken($token);
 

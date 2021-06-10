@@ -55,12 +55,12 @@
                 We started our project by analizing the requirements and making a list of the items that had to be implemented in order to simulate a real website. We then had an <a href="https://www.adobe.com/products/xd.html">Adobe XD</a> file created by one of our team members in order to have clear guidelines about the visual aspect of our project. We then proceeded to split our work as evenly as possible, each of us being responsible with writing the HTML and CSS for one page. We used a similar approach for designing and implementing the backend and the API, by first drawing the Use Case diagrams and writing down our tasks and responsibilities (using <a href="https://trello.com/">Trello</a>). We have also used <a href="https://github.com/">GitHub</a> for version control.
 
                 <figure>
-                    <img src="/assets/about/useCase1.jpg" alt="Use Case Diagram #1">
+                    <img src="/assets/about/useCase1.svg" alt="Use Case Diagram #1">
                     <figcaption> Web Application Use Case Diagram </figcaption>
                 </figure>
 
                 <figure>
-                    <img src="/assets/about/useCase2.jpg" alt="Use Case Diagram #2">
+                    <img src="/assets/about/useCase2.svg" alt="Use Case Diagram #2">
                     <figcaption> API Use Case Diagram </figcaption>
                 </figure>
             </section>
@@ -106,7 +106,7 @@
                 </p>
 
                 <figure>
-                    <img src="/assets/about/architecture.jpg" id="architecture" alt="App architecture">
+                    <img src="/assets/about/architecture.svg" id="architecture" alt="App architecture">
                     <figcaption> App architecture diagram </figcaption>
                 </figure>
             </section>

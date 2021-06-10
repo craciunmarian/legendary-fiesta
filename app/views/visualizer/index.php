@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/css/common/common.css">
     <link rel="stylesheet" href="/css/visualizer/visualizer.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <title>UnWe - Unemployment Web Visualizer</title>
+    <meta name="description" content="Generate charts with official unemployment data in Romania">
 </head>
 
 <body id="body">
