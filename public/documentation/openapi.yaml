@@ -4,7 +4,7 @@ info:
   description: API to get official data about unemployment in Romania.
   version: 1.0.0
 servers:
-  - url: localhost
+  - url: https://unwe-ara.000webhostapp.com/api
 paths:
   /query:
     get:
@@ -24,7 +24,7 @@ paths:
             type: string
             format: date
           example: "2020-10-01"
-        - name: counties
+        - name: counties[]
           in: query
           required: true
           schema:
