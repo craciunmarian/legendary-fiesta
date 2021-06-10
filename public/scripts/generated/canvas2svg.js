@@ -1201,28 +1201,6 @@
     ctx.prototype.globalCompositeOperation = function () {};
     ctx.prototype.setTransform = function () {};
 
-
-    //adaugate, dupa raspunsul de pe https://stackoverflow.com/questions/45563420/exporting-chart-js-charts-to-svg-using-canvas2svg-js
-    ctx.prototype.getContext = function (contextId) {
-        if (contextId=="2d" || contextId=="2D") {
-            return this;
-        }
-        return null;
-    }
-    
-    ctx.prototype.style = function () {
-        return this.__canvas.style
-    }
-    
-    ctx.prototype.getAttribute = function (name) {
-        return this[name];
-    }
-    
-    ctx.prototype.addEventListener =  function(type, listener, eventListenerOptions) {
-        console.log("canvas2svg.addEventListener() not implemented.")
-    }
-
-
     //add options for alternative namespace
     if (typeof window === "object") {
         window.C2S = ctx;
