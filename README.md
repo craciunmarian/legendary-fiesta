@@ -7,3 +7,4 @@ ex: C:/TW/TW_UnWe_MVC/public
 Fun fact: fisierul .xd facut de Adana care contine design-ul proiectului se afla in /public/XD design
 
 hosting: https://unwe-ara.000webhostapp.com/home
+presentation: https://www.youtube.com/watch?v=ykph7Xm_6TQ
