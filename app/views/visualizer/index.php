@@ -439,7 +439,7 @@
 
             <section class="visualizer-form__2-checkboxes">
                 <input name="rural-women" id="rural-women" type="checkbox">
-                <label for="under 25"> Femei din mediul rural </label>
+                <label for="rural-women"> Femei din mediul rural </label>
 
                 <input name="rural-men" id="rural-men" type="checkbox">
                 <label for="rural-men"> Bărbați din mediul rural </label>
