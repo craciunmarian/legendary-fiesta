@@ -531,7 +531,7 @@ function getLineChart(data) {
 var canvas = document.getElementById('chart');
 var context = canvas.getContext('2d');
 
-document.getElementById('downloadPDF').addEventListener("click", exportToSVG);
+document.getElementById('downloadPDF').addEventListener("click", exportToPDF);
 document.getElementById('downloadCSV').addEventListener("click", exportToCSV);
 
 function exportToCSV() {
