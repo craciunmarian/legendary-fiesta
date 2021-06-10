@@ -404,11 +404,11 @@ function getLineChart(data) {
         labelNr++;
     }
 
-    if (county2) {
+    if (county2 && county2 != county1) {
         labelNr++;
     }
 
-    if (county3) {
+    if (county3 && county3 != county2) {
         labelNr++;
     }
 
@@ -518,10 +518,10 @@ function getLineChart(data) {
     if (county1) {
         addData(county1, county1Array);
     }
-    if (county2) {
+    if (county2 && county2Array.length != 0) {
         addData(county2, county2Array);
     }
-    if (county3) {
+    if (county3 && county3Array.length != 0) {
         addData(county3, county3Array);
     }
 
