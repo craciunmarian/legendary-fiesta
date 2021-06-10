@@ -17,14 +17,15 @@
     </div>
 
     <div class="btns" id="btns">
-        <button id="downloadPDF">Save as PDF</button>
+        <button id="downloadPDF" class="dlPDF">Save as PDF</button>
+        <button id="downloadCSV" class="dlCSV">Save as CSV</button>
         <!-- <button id="downloadSVG">Save as SVG</button> -->
     </div>
 
+    <script src="/scripts/generated/canvas2svg.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js"></script>
     <script src="/scripts/generated/export.js"></script>
-    <script src="/scripts/generated/canvas2svg.js"></script>
     <script src="/scripts/generated/chart_cfg.js"></script>
 
     <!-- <svg xmlns="http://www.w3.org/2000/svg" width="897.544" height="632.829" viewBox="0 0 897.544 632.829">

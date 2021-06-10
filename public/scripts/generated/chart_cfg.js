@@ -26,14 +26,14 @@ if (params.has("county1")) {
 if (params.has("county2")) {
     query = query + '&counties[]=' + params.get("county2").toLowerCase();
     county2 = params.get("county2");
-    if (county2 == county1){
+    if (county2 == county1) {
         county2 = null;
     }
 }
 if (params.has("county3")) {
     query = query + '&counties[]=' + params.get("county3").toLowerCase();
     county3 = params.get("county3");
-    if (county3 == county1){
+    if (county3 == county1) {
         county3 = null;
     }
 }
@@ -65,6 +65,8 @@ let options = {
     options: {
         responsive: true,
         animation: true,
+        maintainAspectRation: true,
+        aspectRatio: 1.5,
         plugins: {
             legend: {
                 display: true,
@@ -491,7 +493,7 @@ function getLineChart(data) {
         }
 
         element.nr_total += aux;
-  
+
         if (index < labelNr) {
             index++;
         }
@@ -526,15 +528,130 @@ function getLineChart(data) {
     chart.update();
 }
 
-console.log(options);
-
 var canvas = document.getElementById('chart');
 var context = canvas.getContext('2d');
 
-document.getElementById('downloadPDF').addEventListener("click", exportToPDF);
+document.getElementById('downloadPDF').addEventListener("click", exportToSVG);
+document.getElementById('downloadCSV').addEventListener("click", exportToCSV);
 
 function exportToCSV() {
-    console.log("stuff");
+    switch (chartType) {
+        case 'pie': exportPieToCSV();
+            break;
+        case 'bar': exportBarToCSV();
+            break;
+        case 'line': exportLineToCSV();
+            break;
+        default: console.log("idk");
+    }
+}
+
+function exportBarToCSV() {
+    console.log(options);
+    var obj = options;
+    var csvArr = [];
+
+    csvArr = csvArr + "data:text/csv;charset=utf-8,";
+    csvArr = csvArr + 'Judet, '
+    obj.data.datasets.forEach(element => {
+        csvArr = csvArr + element.label + ', ';
+    })
+
+    csvArr = csvArr + "\n";
+
+    var i = 0;
+
+    obj.data.labels.forEach(elem => {
+        csvArr = csvArr + elem.normalize("NFD").replace(/[\u0300-\u036f]/g, "") + ', ';
+
+        obj.data.datasets.forEach(e => {
+            csvArr = csvArr + e.data[i];
+            csvArr = csvArr + ', ';
+        });
+
+        csvArr = csvArr + "\r\n";
+        i++;
+
+    });
+
+    var encodedUri = encodeURI(csvArr);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "data.csv");
+    document.body.appendChild(link);
+
+    link.click();
+}
+
+function exportPieToCSV() {
+    console.log(options);
+    var obj = options;
+    var csvArr = [];
+
+    csvArr = csvArr + "data:text/csv;charset=utf-8,";
+    csvArr = csvArr + "Judet, ";
+    var countyArr = [county1, county2, county3];
+
+    var i = 0;
+
+    obj.data.labels.forEach(elem => {
+        csvArr = csvArr + elem.normalize("NFD").replace(/[\u0300-\u036f]/g, "") + ', ';
+    });
+
+    csvArr = csvArr + "\n";
+
+    obj.data.datasets.forEach(e => {
+        var count = 0;
+        csvArr = csvArr + countyArr[count].normalize("NFD").replace(/[\u0300-\u036f]/g, "") + ', ';
+        count ++;
+        csvArr = csvArr + e.data[0] + ', ' + e.data[1] + ',';
+        csvArr = csvArr + "\r\n";
+    });
+
+    var encodedUri = encodeURI(csvArr);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "data.csv");
+    document.body.appendChild(link);
+
+    link.click();
+}
+
+function exportLineToCSV() {
+    console.log(options);
+    var obj = options;
+    var csvArr = [];
+
+    csvArr = csvArr + "data:text/csv;charset=utf-8,";
+    csvArr = csvArr + 'Data, '
+    obj.data.datasets.forEach(element => {
+        csvArr = csvArr + element.label.normalize("NFD").replace(/[\u0300-\u036f]/g, "") + ', ';
+    })
+
+    csvArr = csvArr + "\n";
+
+    var i = 0;
+
+    obj.data.labels.forEach(elem => {
+        csvArr = csvArr + elem + ', ';
+
+        obj.data.datasets.forEach(e => {
+            csvArr = csvArr + e.data[i];
+            csvArr = csvArr + ', ';
+        });
+
+        csvArr = csvArr + "\r\n";
+        i++;
+
+    });
+
+    var encodedUri = encodeURI(csvArr);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "data.csv");
+    document.body.appendChild(link);
+
+    link.click();
 }
 
 function exportToPDF() {
@@ -552,6 +669,15 @@ function exportToPDF() {
     doc.save(chartType + '-chart.pdf');
 }
 
-// chart.options.animation = false;
-// chart.options.responsive = false;
-// createSvgLink('yeet.svg', 'SVG', chart, options);
+function exportToSVG() {
+    tweakLib();
+    chart.options.responsive = false;
+    chart.options.animation = false;
+
+    var svgContext = C2S(500, 500);
+    var mySvg = new Chart(svgContext, options);
+    mySvg.width=600;
+    mySvg.height=600; 
+
+    console.log(svgContext.getSerializedSvg(true));
+}
